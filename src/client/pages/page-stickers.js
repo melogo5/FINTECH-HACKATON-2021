@@ -10,12 +10,13 @@ const stickersArray = ["3-58164", "3-58164", "3-58164"];
 const style = css`
   :host {
     display: block;
+    padding: 10px !important;
   }
   #stickerList {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-    gap: 5px;
+    gap: 10px;
   }
   slot {
     display: block;

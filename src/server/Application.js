@@ -78,7 +78,6 @@ import fs from 'fs';
 
       app.listen(this.config.port, () => {
         const location = `http://${this.config.host}:${this.config.port}`;
-        console.log(`server for bell-integrator running at ${location}`);
       });
 
       try {

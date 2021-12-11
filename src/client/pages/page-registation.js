@@ -41,12 +41,6 @@ const style = css`
   .inputPVP:focus {
     border-color: var(--bell-red);
   }
-  .integrator {
-    position: absolute;
-    bottom: 10%;
-    left: 0;
-    right: 0;
-  }
   #registerBtn {
     margin-top: 18px;
   }
@@ -69,7 +63,7 @@ export default class PageRegistration extends Component {
           <input class="inputPVP" type="email" name="email" placeholder="Электронная почта (логин)">
           <input class="inputPVP" type="password" name="password" placeholder="Пароль">
           <app-button primary id="registerBtn">Зарегистрироваться</app-button>
-          <app-logo class="integrator"></app-logo>
+          <app-logo></app-logo>
         </div>
         <slot></slot>
       </template>`;

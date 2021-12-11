@@ -33,12 +33,6 @@ const style = css`
   .inputPVP:focus {
     border-color: var(--bell-red);
   }
-  .integrator {
-    position: absolute;
-    bottom: 10%;
-    left: 0;
-    right: 0;
-  }
   #button-login {
     margin-top: 18px;
   }
@@ -64,7 +58,7 @@ export default class PageLogin extends Component {
           <input class="inputPVP" name="password" value="Qwerty12" placeholder="Введите Ваш пароль" />
 
           <app-button primary id="button-login">Продолжить</app-button>
-          <app-logo class="integrator"></app-logo>
+          <app-logo></app-logo>
         </div>
       </template>`;
 
