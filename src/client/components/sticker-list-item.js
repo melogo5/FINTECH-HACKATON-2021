@@ -1,5 +1,5 @@
 import Component, { html, css } from '../class/Component.js';
-import $ from '../class/DOM.js';
+import $, { slottedValue } from '../class/DOM.js';
 import AppSticker from './app-sticker.js';
 
 const attributes = {};
@@ -17,7 +17,7 @@ const style = css`
     width: 100%;
   }
   slot {
-    display: block;
+    display: none;
   }`;
 
 /** StickerItem {StickerListItem} @class @ui @component <sticker-list-item />
@@ -30,6 +30,7 @@ export default class StickerListItem extends Component {
         <div id="stickerBody">
 
         </div>
+        <slot></slot>
       </template>`;
 
   /** Создание компонента {StickerListItem} @constructor
@@ -38,7 +39,7 @@ export default class StickerListItem extends Component {
   constructor(sticker) {
     super();
     if (!sticker) return;
-    this.store({ sticker });
+    this.innerText = sticker;
   }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
@@ -48,8 +49,10 @@ export default class StickerListItem extends Component {
   mount(node) {
     super.mount(node, attributes, properties);
 
-    const { sticker } = this.store();
-    const stickerComponent = new AppSticker(sticker.stickerPath);
+    // const { sticker } = this.store();
+    const slot = $('slot', node);
+    const text = slottedValue(slot);
+    const stickerComponent = new AppSticker(text);
 
     // stickerComponent.classList.add("sticker");
 

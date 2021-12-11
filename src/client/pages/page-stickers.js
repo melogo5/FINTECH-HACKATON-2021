@@ -5,20 +5,7 @@ import $ from '../class/DOM.js';
 const attributes = {};
 const properties = {};
 
-const stickersArray = [
-  {
-    stickerPath: '/stickers/3-58164.json',
-    name: "кошкодевочка"
-  },
-  {
-    stickerPath: '/stickers/3-58164.json',
-    name: "кошкодевочка"
-  },
-  {
-    stickerPath: '/stickers/3-58164.json',
-    name: "кошкодевочка"
-  }
-];
+const stickersArray = ["3-58164", "3-58164", "3-58164"];
 
 const style = css`
   :host {

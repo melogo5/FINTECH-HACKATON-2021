@@ -10,6 +10,7 @@ import PageCamera from '../pages/page-camera.js';
 import PageFriends from '../pages/page-friends.js';
 import PageProfile from '../pages/page-profile.js';
 import PageDonate from '../pages/page-donate.js';
+import PageSuccess from '../pages/page-success.js';
 
 // if ('serviceWorker' in navigator) {
 //   navigator.serviceWorker.register('/service-worker.js')
@@ -84,6 +85,10 @@ main();
           .route({
             path: 'donate',
             node: 'page-donate',
+          })
+          .route({
+            path: 'success',
+            node: 'page-success'
           })
           .route({
             path: 'stickers',
