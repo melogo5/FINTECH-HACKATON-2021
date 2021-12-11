@@ -13,7 +13,8 @@ const style = css`
     width: 40%;
     margin: 4%;
   }
-  .sticker {
+  .stickerBody {
+    width: 100%;
   }
   slot {
     display: block;
@@ -26,7 +27,9 @@ export default class StickerListItem extends Component {
   static template = html`
       <template>
         <style>${style}</style>
-        <slot></slot>
+        <div id="stickerBody">
+
+        </div>
       </template>`;
 
   /** Создание компонента {StickerListItem} @constructor
@@ -48,10 +51,9 @@ export default class StickerListItem extends Component {
     const { sticker } = this.store();
     const stickerComponent = new AppSticker(sticker.stickerPath);
 
-    stickerComponent.classList.add("sticker");
+    // stickerComponent.classList.add("sticker");
 
-    console.log(sticker);
-    node.append(stickerComponent);
+    $("#stickerBody", node).append(stickerComponent);
     return this;
   }
 
