@@ -13,12 +13,14 @@ const style = css`
     --font-color: var(--bell-white);
     --color-hover: var(--bell-dark-red);
     --border-color: var(--bell-red);
+    --gradient: var(--main-btn-gradient);
   }
   :host([secondary]) {
     --color: var(--bell-white);
     --font-color: var(--bell-black);
     --color-hover: var(--ligth-gray2);
     --border-color: var(--bell-gray);
+    --gradient: var(--secondary-btn-gradient);
   }
   :host([disabled]) {
     cursor: default;
@@ -31,9 +33,10 @@ const style = css`
     color: var( --font-color);
     padding: 10px 20px;
     border-radius: 5px;
-    border: 1px solid var(--border-color);
     font-size: 16px;
     width: 100%;
+    border: none;
+    background: linear-gradient(var(--gradient));
   }`;
 
 /** Дефолтная кнопка {Button} @class @ui @component <app-button />
