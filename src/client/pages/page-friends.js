@@ -26,7 +26,7 @@ const friendList = [
     avatar: '../images/3.jpg',
     name: '1000-7',
     badge: 'Наблюдатель',
-    donateAmount: 0,
+    donateAmount: 1,
     stickersCount: 0,
   },
   {
@@ -40,7 +40,7 @@ const friendList = [
     avatar: '../images/5.jpg',
     name: 'Dimk4',
     badge: 'Неравнодушный',
-    donateAmount: 37,
+    donateAmount: 32,
     stickersCount: 1,
   }
 ];
