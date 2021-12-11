@@ -1,5 +1,5 @@
 import Component, { html, css } from '../class/Component.js';
-import $ from '../class/DOM.js';
+import $, { updateChildrenAttribute, updateChildrenProperty, updateChildrenText } from '../class/DOM.js';
 import locator from '../script/locator.js';
 
 import AppClose from './app-close.js';
@@ -24,23 +24,40 @@ const style = css`
   }
   #root {
     position: absolute;
-    left: 2vw;
     bottom: 0;
     background-color: whitesmoke;
-    box-shadow: 0 0 3px 3px #ccc;
-    padding: 16px 8px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     box-sizing: border-box;
-    width: 96vw;
+    width: 100vw;
+  }
+  #header {
+    position: relative;
+    width: 100%;
+    background-color: green;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 0 0 10px 10px;
+    --gradient: var(--secondary-btn-gradient);
+    background: linear-gradient(var(--gradient)) !important;
+  }
+  #title {
+    font-size: 20px;
   }
   app-close {
-    width: 24px;
+    position: absolute;
+    right: 0;
+    width: 30px;
+    padding: 0 5px;
   }
   slot {
     display: block;
     overflow: auto;
     max-height: 80vh;
+    padding: 16px 8px;
     padding-bottom: 80px;
     box-sizing: border-box;
   }`;
@@ -53,11 +70,20 @@ const style = css`
       <template>
         <style>${style}</style>
         <div id="root">
-          <app-close></app-close>
+          <div id="header">
+            <div id="title">Заголовок</div>
+            <app-close></app-close>
+          </div>
           <slot></slot>
         </div>
       </template>`;
-
+  /** Создание компонента {AppFriendCard} @constructor
+    * @param {type} store param-description
+    */
+    constructor(store) {
+    super();
+    this.store({ store });
+  }
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
     * @return {AppDrawer} #this текущий компонент
@@ -80,6 +106,10 @@ const style = css`
 
       $('app-close', node).addEventListener('click', closeDrawer);
       locator.channel.on('drawer-close', closeDrawer);
+      const { store } = this.store();
+      console.log(store);
+      updateChildrenText(node, '#title', store.title);
+
       return this;
     }
   }

@@ -17,7 +17,7 @@ const style = css`
     --gradient: var(--main-btn-gradient);
     background: linear-gradient(var(--gradient));
     display: grid;
-
+    border-radius: 0 0 10px 10px;
     height: 40px;
     justify-content: center;
     color: white;
