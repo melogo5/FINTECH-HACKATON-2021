@@ -10,6 +10,8 @@ const properties = {};
 const style = css`
   :host {
     display: block;
+    height: 100%;
+    padding: 10px !important;
   }
   slot {
     display: block;

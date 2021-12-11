@@ -5,18 +5,8 @@ const properties = {};
 
 const style = css`
   :host {
-    # display: block;
-		# /* background-color: whitesmoke; */
-    # border-radius: 8px;
-    # box-shadow: 0 0 3px 3px #ccc;
-    # margin: 0 auto 16px;
-    # width: 96%;
-    # padding: 10px;
-    # box-sizing: border-box;
-    # font-family: var(--font);
   }
   :host(:hover) {
-    # background-color: snow;
   }
   slot {
     display: block;

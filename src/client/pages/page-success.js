@@ -1,5 +1,6 @@
 import Component, { html, css } from '../class/Component.js';
 import AppSticker from '../components/app-sticker.js';
+import AppSocial from '../components/app-social.js';
 
 const attributes = {};
 const properties = {};
@@ -7,6 +8,15 @@ const properties = {};
 const style = css`
   :host {
     display: block;
+    padding: 10px !important;
+  }
+  app-social {
+    margin: 10px 0;
+  }
+  .text {
+    display: block;
+    text-align: center;
+    font-size: 30px;
   }
   slot {
     display: block;
@@ -19,14 +29,12 @@ const style = css`
     static template = html`
       <template>
         <style>${style}</style>
-        Ура! вы сделали доброе дело и получаете стикер!
+        <div class="text">Ура! вы сделали доброе дело и получаете стикер!</div>
         <app-sticker>3-58164</app-sticker>
         <slot></slot>
-        рассказать друзьям
-        --
-        vk и так далее
-        --
-        <a href="#main/stickers">все мои стикеры</a>
+        <div class="text">Поделитесь с друзьями!</div>
+        <app-social></app-social>
+        <a class="text" href="#main/stickers">все мои стикеры</a>
       </template>`;
 
   // /** Создание компонента {PageSuccess} @constructor

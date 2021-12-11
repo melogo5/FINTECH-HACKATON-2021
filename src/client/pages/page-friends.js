@@ -42,6 +42,41 @@ export const friendList = [
     badge: 'Неравнодушный',
     donateAmount: 32,
     stickersCount: 1,
+  },
+  {
+    avatar: '../images/1.jpg',
+    name: 'Камила',
+    badge: 'Щедрый',
+    donateAmount: 4312,
+    stickersCount: 23,
+  },
+  {
+    avatar: '../images/2.jpg',
+    name: 'Диана',
+    badge: 'Наблюдатель',
+    donateAmount: 0,
+    stickersCount: 0,
+  },
+  {
+    avatar: '../images/3.jpg',
+    name: '1000-7',
+    badge: 'Наблюдатель',
+    donateAmount: 1,
+    stickersCount: 0,
+  },
+  {
+    avatar: '../images/4.jpg',
+    name: 'Илья',
+    badge: 'Неравнодушный',
+    donateAmount: 100,
+    stickersCount: 2,
+  },
+  {
+    avatar: '../images/5.jpg',
+    name: 'Dimk4',
+    badge: 'Неравнодушный',
+    donateAmount: 32,
+    stickersCount: 1,
   }
 ];
 
@@ -50,9 +85,7 @@ const style = css`
     display: block;
     position: relative;
     height: 100%;
-  }
-  app-list {
-    margin: 0 20px;
+    padding: 0 10px !important;
   }
   slot {
     display: block;
@@ -93,9 +126,9 @@ const style = css`
         list.append(listItem);
       }
       const addButton = $('app-button', node);
-      addButton.style.position = 'absolute';
-      addButton.style.right = '20px';
-      addButton.style.bottom = '20px';
+      addButton.style.position = 'fixed';
+      addButton.style.right = '10px';
+      addButton.style.bottom = '110px';
       return this;
     }
 

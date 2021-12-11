@@ -1,4 +1,5 @@
 import Component, { html, css } from '../class/Component.js';
+import AppButton from './app-button.js';
 // import QrScanner from '../library/qr-scanner.min.js';
 import $ from '../class/DOM.js';
 
@@ -19,6 +20,13 @@ const properties = {};
 const style = css`
   :host {
     display: block;
+    position: relative;
+    height: 100%;
+  }
+  #camera-access {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
   }
   video {
     width: 100%;
@@ -41,7 +49,7 @@ const style = css`
         <style>${style}</style>
         <video></video>
         <canvas></canvas>
-        <button id="camera-access">enable camera</button>
+        <app-button secondary wide id="camera-access">Включить камеру</app-button>
         <div id="devices"></div>
       </template>`;
 

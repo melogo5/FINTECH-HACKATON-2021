@@ -8,6 +8,7 @@ const style = css`
   :host {
     display: block;
     font-family: var(--font);
+    --width: auto;
     --round-radius: 5px;
   }
   :host([primary]) {
@@ -19,7 +20,7 @@ const style = css`
   }
   :host([secondary]) {
     --color: var(--bell-white);
-    --font-color: var(--bell-black);
+    --font-color: var(--bell-white);
     --color-hover: var(--ligth-gray2);
     --border-color: var(--bell-gray);
     --gradient: var(--secondary-btn-gradient);
@@ -27,6 +28,9 @@ const style = css`
   :host([icon]) {
     --color: var(--bell-white);
     --round-radius: 30px;
+  }
+  :host([wide]) {
+    --width: 100%;
   }
   :host([disabled]) {
     cursor: default;
@@ -36,12 +40,13 @@ const style = css`
   }
   button {
     background-color: var(--color);
-    color: var( --font-color);
+    color: var(--font-color);
     padding: 10px 20px;
     border-radius: var(--round-radius);
     font-size: 14px;
     border: none;
     background: linear-gradient(var(--gradient));
+    width: var(--width);
   }`;
 
 /** Дефолтная кнопка {Button} @class @ui @component <app-button />
