@@ -9,7 +9,8 @@ const stickersArray = ["3-58164", "3-58164", "3-58164"];
 
 const style = css`
   :host {
-    display: block;
+    display: grid;
+    grid-template-rows: 1fr 40px;
     padding: 10px !important;
   }
   #stickerList {
@@ -18,6 +19,12 @@ const style = css`
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     gap: 10px;
+  }
+  .getMoreStickers {
+    color: gray;
+    text-align: center;
+    position: absolute;
+    bottom: 15px;
   }
   slot {
     display: block;
@@ -31,6 +38,7 @@ export default class PageStickers extends Component {
       <template>
         <style>${style}</style>
         <div id="stickerList"></div>
+        <div class="getMoreStickers">Получайте больше стикеров жертвуя на лаготворительность</div>
       </template>`;
 
   // /** Создание компонента {PageStickers} @constructor

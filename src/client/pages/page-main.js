@@ -24,6 +24,8 @@ const style = css`
   }
   slot {
     display: block;
+    position: relative;
+
     overflow: auto;
     overscroll-behavior-y: contain;
     /* padding-bottom: 80px; */
