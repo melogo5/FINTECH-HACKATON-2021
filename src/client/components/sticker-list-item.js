@@ -1,6 +1,8 @@
 import Component, { html, css } from '../class/Component.js';
 import $, { slottedValue } from '../class/DOM.js';
+import locator from '../script/locator.js';
 import AppSticker from './app-sticker.js';
+import StickerCard from './sticker-card.js';
 
 const attributes = {};
 const properties = {};
@@ -54,7 +56,14 @@ export default class StickerListItem extends Component {
     const text = slottedValue(slot);
     const stickerComponent = new AppSticker(text);
 
-    // stickerComponent.classList.add("sticker");
+    node.addEventListener("click", () => {
+      locator.channel.send('drawer-open', {
+        page: new StickerCard(text),
+        params: {
+          title: text
+        }
+      });
+    });
 
     $("#stickerBody", node).append(stickerComponent);
     return this;

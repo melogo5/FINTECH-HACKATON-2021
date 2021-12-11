@@ -46,7 +46,7 @@ const style = css`
         <div class="statusProfile">Неравнодушный</div>
         <div class="donationsProfile">
           <p>пожертвованно:</p>
-          <p>400:</p>
+          <p>400</p>
         </div>
         <div class="stickersProfile">
           <p>стикеров</p>

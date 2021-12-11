@@ -12,6 +12,7 @@ const style = css`
     display: block;
   }
   #stickerList {
+    margin-top: 15px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;

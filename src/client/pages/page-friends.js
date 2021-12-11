@@ -7,7 +7,7 @@ import $ from '../class/DOM.js';
 const attributes = {};
 const properties = {};
 
-const friendList = [
+export const friendList = [
   {
     avatar: '../images/1.jpg',
     name: 'Камила',
