@@ -1,6 +1,8 @@
 import Component, { html, css } from '../class/Component.js';
+import $ from '../class/DOM.js';
 
-import AppSticker from '../components/app-sticker.js';
+import AppCamera from '../components/app-camera.js';
+
 
 const attributes = {};
 const properties = {};
@@ -21,17 +23,16 @@ const style = css`
       <template>
         <style>${style}</style>
         <slot></slot>
-        Камера
-        <app-sticker></app-sticker>
+        <app-camera></app-camera>
       </template>`;
 
-  /** Создание компонента {PageCamera} @constructor
-    * @param {type} store param-description
-    */
-    constructor(store) {
-      super();
-      this.store({ store });
-    }
+  // /** Создание компонента {PageCamera} @constructor
+  //   * @param {type} store param-description
+  //   */
+  //   constructor(store) {
+  //     super();
+  //     this.store({ store });
+  //   }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
@@ -39,8 +40,12 @@ const style = css`
     */
     mount(node) {
       super.mount(node, attributes, properties);
+      const camera = $('app-camera', node);
+      camera.addEventListener('qr-code', e => {
+        console.log(e.detail);
+      })
 
-      const { store } = this.store();
+      // const { store } = this.store();
       return this;
     }
 

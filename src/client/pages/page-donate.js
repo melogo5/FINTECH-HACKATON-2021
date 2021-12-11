@@ -1,5 +1,4 @@
 import Component, { html, css } from '../class/Component.js';
-import AppSticker from '../components/app-sticker.js';
 
 const attributes = {};
 const properties = {};
@@ -12,19 +11,18 @@ const style = css`
     display: block;
   }`;
 
-/** stickers {PageStickers} @class @ui @component <page-stickers />
+/** name {Class} @class @ui @component <page-donate />
   * description
   */
-  export default class PageStickers extends Component {
+  export default class PageDonate extends Component {
     static template = html`
       <template>
         <style>${style}</style>
+        Помощь в сборе средств на фильтры для ИВЛ
         <slot></slot>
-        стикеры
-        <app-sticker></app-sticker>
       </template>`;
 
-  // /** Создание компонента {PageStickers} @constructor
+  // /** Создание компонента {Class} @constructor
   //   * @param {type} store param-description
   //   */
   //   constructor(store) {
@@ -34,7 +32,7 @@ const style = css`
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
-    * @return {PageStickers} #this текущий компонент
+    * @return {PageDonate} #this текущий компонент
     */
     mount(node) {
       super.mount(node, attributes, properties);
@@ -46,4 +44,4 @@ const style = css`
 
   }
 
-Component.init(PageStickers, 'page-stickers', { attributes, properties });
+Component.init(PageDonate, 'page-donate', { attributes, properties });

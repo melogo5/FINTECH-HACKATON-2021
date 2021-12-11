@@ -4,6 +4,8 @@ import serve from 'koa-static';
 import bodyParser from 'koa-bodyparser';
 import mount from 'koa-mount';
 import fetch from 'node-fetch';
+import https from 'https';
+import fs from 'fs';
 
 /**  */
   export default class Application {
@@ -56,6 +58,19 @@ import fetch from 'node-fetch';
         const location = `http://${this.config.host}:${this.config.port}`;
         console.log(`server for bell-integrator running at ${location}`);
       });
+
+      try {
+        const ssl = {
+          key: fs.readFileSync(this.config.ssl + this.config.key),
+          cert: fs.readFileSync(this.config.ssl + this.config.cert)
+        };
+        https.createServer(ssl, app.callback()).listen(this.config.https, () => {
+          const location = `https://${this.config.host}:${this.config.https}`;
+          console.log(`server running at ${location}`);
+        });
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 

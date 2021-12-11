@@ -10,11 +10,11 @@ import PageCamera from '../pages/page-camera.js';
 import PageFriends from '../pages/page-friends.js';
 import PageProfile from '../pages/page-profile.js';
 
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(reg => console.log('service worker registered'))
-    .catch(err => console.log('service worker not registered', err));
-}
+// if ('serviceWorker' in navigator) {
+//   navigator.serviceWorker.register('/service-worker.js')
+//     .then(reg => console.log('service worker registered'))
+//     .catch(err => console.log('service worker not registered', err));
+// }
 
 main();
 
