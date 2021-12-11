@@ -16,9 +16,9 @@
   /* --bell-font: "open sans" */
   --ligth-gray: #ccc;
   --ligth-gray2: #ededed;
-  --main-btn-gradient: 90.29deg, #1962C4 0.28%, #7DAAFF 99.78%;
-  --secondary-btn-gradient: 90deg, #9B51E0 0%, #F369FF 100%;
   --sticker-card-color: var(--ligth-gray);
+  --main-btn-gradient: 90.29deg, #1962C4 0.28%, #7654FF 100%;
+  --secondary-btn-gradient: 89.93deg, #9829FF 0.05%, #911DFE 0.06%, #D429FF 160.09%;
 
   --font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Ubuntu", "Helvetica Neue", sans-serif;

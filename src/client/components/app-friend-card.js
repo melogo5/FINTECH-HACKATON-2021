@@ -1,11 +1,36 @@
 import Component, { html, css } from '../class/Component.js';
+import $, { updateChildrenText, updateChildrenAttribute } from '../class/DOM.js';
 
 const attributes = {};
 const properties = {};
 
+const badges = {
+  'Красавчик': '#E0CA00',
+  'Добросердечный': '#FF6767',
+  'Щедрый': '#FF0000',
+  'Неравнодушный': '#00E009',
+  'Наблюдатель': '#AEAEAE'
+}
+
 const style = css`
   :host {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+  }
+  #name {
+    font-size: 14px;
+    margin-right: 5px;
+  }
+  .nameWrapper {
+    align-items: baseline;
+  }
+  #avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-right: 10px;
   }
   #flexWrapper {
     display: flex;
@@ -14,7 +39,6 @@ const style = css`
     align-items: center;
   }
   .flexJustifyBetween {
-    justify-content: space-between;
   }
   slot {
     display: block;
@@ -27,19 +51,18 @@ const style = css`
     static template = html`
       <template>
         <style>${style}</style>
-        <slot></slot>
         <div id="flexWrapper" class="flexAlignCenter flexJustifyBetween">
-            <div id="avatar">Ава</div>
-            <div>
-                <div id="flexWrapper">
-                    <div id="name">Илья</div>
-                    <div id="badge">Щедрый</div>
-                </div>
-                <div id="donateAmount">5</div>
-                <div id="stickersCount">2</div>
+          <img id="avatar" />
+          <div>
+            <div id="flexWrapper" class="nameWrapper">
+              <div id="name"></div>
+              <div id="badge"></div>
             </div>
-            <app-button primary id="openProfile">Посмотреть</app-button>
+            <div>Пожертвовано:</div><div id="donateAmount"></div>
+            <div>Стикеров:</div><div id="stickersCount"></div>
+          </div>
         </div>
+        <app-button primary id="openProfile">Посмотреть</app-button>
       </template>`;
 
   /** Создание компонента {AppFriendCard} @constructor
@@ -56,9 +79,16 @@ const style = css`
     */
     mount(node) {
       super.mount(node, attributes, properties);
-
       const { store } = this.store();
-      console.log(store);
+      for (const [key, value] of Object.entries(store)) {
+        console.log(key);
+        if (key === 'avatar' ) {
+          updateChildrenAttribute(node, `#${key}`, 'src', store[key])
+        } else {
+          updateChildrenText(node, `#${key}`, store[key]);
+        }
+      }
+      $('#badge', node).style.color = badges[store.badge];
       return this;
     }
 

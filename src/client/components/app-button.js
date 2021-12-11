@@ -33,7 +33,7 @@ const style = css`
     color: var( --font-color);
     padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 12px;
     width: 100%;
     border: none;
     background: linear-gradient(var(--gradient));
