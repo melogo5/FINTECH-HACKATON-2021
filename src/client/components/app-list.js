@@ -30,8 +30,6 @@ const style = css`
       super.mount(node, attributes, properties);
       return this;
     }
-
-
   }
 
 Component.init(AppList, 'app-list', { attributes, properties });
