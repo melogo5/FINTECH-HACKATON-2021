@@ -7,9 +7,50 @@ import $ from '../class/DOM.js';
 const attributes = {};
 const properties = {};
 
+const friendList = [
+  {
+    avatar: '../images/1.jpg',
+    name: 'Камила',
+    badge: 'Щедрый',
+    donateAmount: 4312,
+    stickersCount: 23,
+  },
+  {
+    avatar: '../images/2.jpg',
+    name: 'Диана',
+    badge: 'Наблюдатель',
+    donateAmount: 0,
+    stickersCount: 0,
+  },
+  {
+    avatar: '../images/3.jpg',
+    name: '1000-7',
+    badge: 'Наблюдатель',
+    donateAmount: 0,
+    stickersCount: 0,
+  },
+  {
+    avatar: '../images/4.jpg',
+    name: 'Илья',
+    badge: 'Неравнодушный',
+    donateAmount: 100,
+    stickersCount: 2,
+  },
+  {
+    avatar: '../images/5.jpg',
+    name: 'Dimk4',
+    badge: 'Неравнодушный',
+    donateAmount: 37,
+    stickersCount: 1,
+  }
+];
+
 const style = css`
   :host {
     display: block;
+  }
+  app-list {
+    margin: 0 20px;
   }
   slot {
     display: block;

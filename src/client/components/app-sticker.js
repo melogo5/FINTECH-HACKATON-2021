@@ -27,9 +27,9 @@ const style = css`
   /** Создание компонента {AppSticker} @constructor
     // * @param {type} store param-description
     */
-    constructor(store) {
+    constructor(path) {
       super();
-      this.store({ store });
+      this.store({ path });
     }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
@@ -38,6 +38,7 @@ const style = css`
     */
     mount(node) {
       super.mount(node, attributes, properties);
+      const { path } = this.store();
 
       // debugger;
       const element = $('div', node);
@@ -49,7 +50,7 @@ const style = css`
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        path: '/stickers/3-58164.json' // the path to the animation json
+        path: path // the path to the animation json
       });
 
       // const { store } = this.store();

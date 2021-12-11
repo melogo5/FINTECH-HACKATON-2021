@@ -3,7 +3,6 @@ import $ from '../class/DOM.js';
 
 import AppCamera from '../components/app-camera.js';
 
-
 const attributes = {};
 const properties = {};
 
