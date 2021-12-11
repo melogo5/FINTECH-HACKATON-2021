@@ -1,5 +1,9 @@
 {
     "host": "localhost",
     "port": 7777,
-    "serve": "./src/client/"
+    "https": 7443,
+    "serve": "./src/client/",
+    "ssl": "./ssl/",
+    "cert": "localhost.crt",
+    "key": "localhost.key"
 }

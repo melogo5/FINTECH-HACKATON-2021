@@ -44,13 +44,13 @@ export default class PageStickers extends Component {
         <div id="stickerList"></div>
       </template>`;
 
-  /** Создание компонента {PageStickers} @constructor
-    * @param {type} store param-description
-    */
-  constructor(store) {
-    super();
-    this.store({ store });
-  }
+  // /** Создание компонента {PageStickers} @constructor
+  //   * @param {type} store param-description
+  //   */
+  // constructor(store) {
+  //   super();
+  //   this.store({ store });
+  // }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента

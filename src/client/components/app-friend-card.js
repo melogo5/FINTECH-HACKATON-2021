@@ -17,10 +17,11 @@ const style = css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
   }
   #name {
-    font-size: 14px;
+    font-size: 16px;
     margin-right: 5px;
   }
   .nameWrapper {
@@ -32,7 +33,10 @@ const style = css`
     border-radius: 50px;
     margin-right: 10px;
   }
-  #flexWrapper {
+  #donateAmount, #stickersCount {
+    margin-left: 5px;
+  }
+  .flexWrapper {
     display: flex;
   }
   .flexAlignCenter {
@@ -51,18 +55,19 @@ const style = css`
     static template = html`
       <template>
         <style>${style}</style>
-        <div id="flexWrapper" class="flexAlignCenter flexJustifyBetween">
+        <div class="flexWrapper flexAlignCenter flexJustifyBetween">
           <img id="avatar" />
           <div>
-            <div id="flexWrapper" class="nameWrapper">
-              <div id="name"></div>
-              <div id="badge"></div>
+            <div id="name"></div>
+            <div id="badge"></div>
+            <div class="flexWrapper">
+              <div>Пожертвовано:</div><div id="donateAmount"></div>
             </div>
-            <div>Пожертвовано:</div><div id="donateAmount"></div>
+            <div class="flexWrapper">
             <div>Стикеров:</div><div id="stickersCount"></div>
+            </div>
           </div>
         </div>
-        <app-button primary id="openProfile">Посмотреть</app-button>
       </template>`;
 
   /** Создание компонента {AppFriendCard} @constructor
@@ -92,7 +97,7 @@ const style = css`
       return this;
     }
 
-    
+
   }
 
 Component.init(AppFriendCard, 'friend-card', { attributes, properties });

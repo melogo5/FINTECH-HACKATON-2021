@@ -1,7 +1,4 @@
 import Component, { html, css } from '../class/Component.js';
-import $ from '../class/DOM.js';
-
-import AppCamera from '../components/app-camera.js';
 
 const attributes = {};
 const properties = {};
@@ -14,18 +11,18 @@ const style = css`
     display: block;
   }`;
 
-/** Camera {PageCamera} @class @ui @component <page-camera />
+/** name {Class} @class @ui @component <page-donate />
   * description
   */
-  export default class PageCamera extends Component {
+  export default class PageDonate extends Component {
     static template = html`
       <template>
         <style>${style}</style>
+        Помощь в сборе средств на фильтры для ИВЛ
         <slot></slot>
-        <app-camera></app-camera>
       </template>`;
 
-  // /** Создание компонента {PageCamera} @constructor
+  // /** Создание компонента {Class} @constructor
   //   * @param {type} store param-description
   //   */
   //   constructor(store) {
@@ -35,14 +32,10 @@ const style = css`
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
-    * @return {PageCamera} #this текущий компонент
+    * @return {PageDonate} #this текущий компонент
     */
     mount(node) {
       super.mount(node, attributes, properties);
-      const camera = $('app-camera', node);
-      camera.addEventListener('qr-code', e => {
-        console.log(e.detail);
-      })
 
       // const { store } = this.store();
       return this;
@@ -51,4 +44,4 @@ const style = css`
 
   }
 
-Component.init(PageCamera, 'page-camera', { attributes, properties });
+Component.init(PageDonate, 'page-donate', { attributes, properties });
