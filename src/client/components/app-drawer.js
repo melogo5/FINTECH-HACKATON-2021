@@ -77,13 +77,13 @@ const style = css`
           <slot></slot>
         </div>
       </template>`;
-  /** Создание компонента {AppFriendCard} @constructor
+  /** Создание компонента {AppDrawer} @constructor
     * @param {type} store param-description
     */
     constructor(store) {
-    super();
-    this.store({ store });
-  }
+      super();
+      this.store({ store });
+    }
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
     * @return {AppDrawer} #this текущий компонент

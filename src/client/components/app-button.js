@@ -1,4 +1,5 @@
 import Component, { html, css } from '../class/Component.js';
+import $ from '../class/DOM.js';
 
 const attributes = {};
 const properties = {};
@@ -7,6 +8,7 @@ const style = css`
   :host {
     display: block;
     font-family: var(--font);
+    --round-radius: 5px;
   }
   :host([primary]) {
     --color: var(--bell-red);
@@ -22,6 +24,10 @@ const style = css`
     --border-color: var(--bell-gray);
     --gradient: var(--secondary-btn-gradient);
   }
+  :host([icon]) {
+    --color: var(--bell-white);
+    --round-radius: 30px;
+  }
   :host([disabled]) {
     cursor: default;
   }
@@ -32,9 +38,8 @@ const style = css`
     background-color: var(--color);
     color: var( --font-color);
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: var(--round-radius);
     font-size: 14px;
-    width: 100%;
     border: none;
     background: linear-gradient(var(--gradient));
   }`;
@@ -49,15 +54,23 @@ const style = css`
         <button><slot></slot></button>
       </template>`;
 
+    constructor(params) {
+      super();
+      this.store({ params });
+    }
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
     * @return {AppButton} #this текущий компонент
     */
     mount(node) {
       super.mount(node, attributes, properties);
+      if (this.getAttribute('icon')) {
+        const iconElement = document.createElement('img');
+        iconElement.setAttribute('src', '../icons/add.svg');
+        $('button', node).append(iconElement);
+      }
       return this;
     }
-
 
   }
 

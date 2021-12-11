@@ -48,6 +48,8 @@ const friendList = [
 const style = css`
   :host {
     display: block;
+    position: relative;
+    height: 100%;
   }
   app-list {
     margin: 0 20px;
@@ -65,6 +67,7 @@ const style = css`
         <style>${style}</style>
         <slot></slot>
         <app-list></app-list>
+        <app-button icon='sdada' secondary icon></app-button>
       </template>`;
 
   /** Создание компонента {PageFriends} @constructor
@@ -89,6 +92,10 @@ const style = css`
         listItem.append(friendCard);
         list.append(listItem);
       }
+      const addButton = $('app-button', node);
+      addButton.style.position = 'absolute';
+      addButton.style.right = '20px';
+      addButton.style.bottom = '20px';
       return this;
     }
 
