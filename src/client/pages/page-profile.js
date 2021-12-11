@@ -10,6 +10,7 @@ const style = css`
     gap: 10px;
   }
   .myAvatar {
+    margin-top: 25px;
     border-radius: 100%;
   }
   .nameProfile {
