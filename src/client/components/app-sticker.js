@@ -1,5 +1,5 @@
 import Component, { html, css } from '../class/Component.js';
-import $ from '../class/DOM.js';
+import $, { slottedValue } from '../class/DOM.js';
 
 const attributes = {};
 const properties = {};
@@ -9,8 +9,15 @@ const style = css`
     display: block;
   }
   slot {
-    display: block;
+    display: none;
   }`;
+
+  const allStickers = {
+    "3-58164": {
+      stickerPath: '/stickers/3-58164.json',
+      name: "кошкодевочка"
+    }
+  };
 
 /** Отображение стикеров {AppSticker} @class @ui @component <app-sticker />
   * description
@@ -19,17 +26,16 @@ const style = css`
     static template = html`
       <template>
         <style>${style}</style>
-        <slot></slot>
-
         <div></div>
+        <slot></slot>
       </template>`;
 
   /** Создание компонента {AppSticker} @constructor
     // * @param {type} store param-description
     */
-    constructor(path) {
+    constructor(name) {
       super();
-      this.store({ path });
+      if (name) this.innerText = name;
     }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
@@ -38,19 +44,22 @@ const style = css`
     */
     mount(node) {
       super.mount(node, attributes, properties);
-      const { path } = this.store();
+      const slot = $('slot', node);
+      const text = slottedValue(slot);
+      const path = allStickers[text]?.stickerPath;
+      if (!path) return;
+
+      console.log(text, path);
 
       // debugger;
       const element = $('div', node);
-      element.style.width = '80px';
-      element.style.height = '80px';
       // @ts-ignore
       window.lottie.loadAnimation({
         container: element, // the dom element that will contain the animation
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        path: path // the path to the animation json
+        path // the path to the animation json
       });
 
       // const { store } = this.store();

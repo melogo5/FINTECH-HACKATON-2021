@@ -9,6 +9,7 @@ import PageStickers from '../pages/page-stickers.js';
 import PageCamera from '../pages/page-camera.js';
 import PageFriends from '../pages/page-friends.js';
 import PageProfile from '../pages/page-profile.js';
+import PageDonate from '../pages/page-donate.js';
 
 // if ('serviceWorker' in navigator) {
 //   navigator.serviceWorker.register('/service-worker.js')
@@ -79,6 +80,10 @@ main();
             path: 'camera',
             node: 'page-camera',
             default: true
+          })
+          .route({
+            path: 'donate',
+            node: 'page-donate',
           })
           .route({
             path: 'stickers',

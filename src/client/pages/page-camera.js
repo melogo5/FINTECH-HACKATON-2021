@@ -1,5 +1,6 @@
 import Component, { html, css } from '../class/Component.js';
 import $ from '../class/DOM.js';
+import locator from "../script/locator.js";
 
 import AppCamera from '../components/app-camera.js';
 
@@ -40,9 +41,12 @@ const style = css`
     mount(node) {
       super.mount(node, attributes, properties);
       const camera = $('app-camera', node);
-      camera.addEventListener('qr-code', e => {
+      const goDonation = e => {
         console.log(e.detail);
-      })
+        // camera.removeEventListener('click', goDonation);
+        setTimeout(() => locator.go('main/donate'), 1000);
+      }
+      camera.addEventListener('qr-code', goDonation);
 
       // const { store } = this.store();
       return this;

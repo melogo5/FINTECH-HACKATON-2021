@@ -1,4 +1,7 @@
 import Component, { html, css } from '../class/Component.js';
+import locator from "../script/locator.js";
+
+import AppSticker from '../components/app-sticker.js';
 
 const attributes = {};
 const properties = {};
@@ -20,6 +23,7 @@ const style = css`
         <style>${style}</style>
         Помощь в сборе средств на фильтры для ИВЛ
         <slot></slot>
+        <app-sticker>3-58164</app-sticker>
       </template>`;
 
   // /** Создание компонента {Class} @constructor
