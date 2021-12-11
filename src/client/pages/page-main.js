@@ -39,7 +39,6 @@ export default class PageMain extends Component {
       <style>${style}</style>
       <div id="root">
         <slot></slot>
-        Здарова
         <app-bar></app-bar>
       </div>
     </template>`;
