@@ -81,11 +81,11 @@ const style = css`
       </template>`;
 
   /** Создание компонента {AppFriendCard} @constructor
-    * @param {type} store param-description
+    * @param {type} data param-description
     */
-    constructor(store) {
+    constructor(data) {
       super();
-      this.store({ store });
+      this.store({ data });
     }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
@@ -94,8 +94,8 @@ const style = css`
     */
     mount(node) {
       super.mount(node, attributes, properties);
-      const { store } = this.store();
-      for (const [key, value] of Object.entries(store)) {
+      const { data } = this.store();
+      for (const [key, value] of Object.entries(data)) {
         if (key === 'avatar' ) {
           updateChildrenAttribute(node, `#${key}`, 'src', value);
         } else if (key === 'donateAmount') {
@@ -104,20 +104,19 @@ const style = css`
           updateChildrenText(node, `#${key}`, value);
         }
       }
-      $('#badge', node).style.color = badges[store.badge];
+      $('#badge', node).style.color = badges[data.badge];
       node.addEventListener('click', (event) => {
-        const friendName = event.target.querySelector('#name').innerText;
         locator.channel.send('drawer-open', {
           page: new PageFriends(),
           params: {
-            title: `Карточка друга: ${friendName}`
+            title: `Карточка друга: ${data.name}`
           }
         });
       });
       return this;
     }
 
-    declOfNum(number, words) {  
+    declOfNum(number, words) {
       return words[(number % 100 > 4 && number % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(number % 10 < 5) ? Math.abs(number) % 10 : 5]];
     }
   }
