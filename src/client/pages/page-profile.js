@@ -49,7 +49,7 @@ const style = css`
           <p>400</p>
         </div>
         <div class="stickersProfile">
-          <p>стикеров</p>
+          <p>стикеров:</p>
           <p>10</p>
         </div>
       </template>`;
