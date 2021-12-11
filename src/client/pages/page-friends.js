@@ -7,6 +7,16 @@ import $ from '../class/DOM.js';
 const attributes = {};
 const properties = {};
 
+const friendList = [
+  {
+    avatar: '../images/1.jpg',
+    name: 'Илья',
+    badge: 'Красавчик',
+    donateAmount: 345,
+    stickersCount: 2,
+  }
+];
+
 const style = css`
   :host {
     display: block;
