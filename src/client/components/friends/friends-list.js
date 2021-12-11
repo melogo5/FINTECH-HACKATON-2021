@@ -1,5 +1,4 @@
-import Component, { html, css } from '../class/Component.js';
-import FriendsList from '../components/friends/friends-list.js';
+import Component, { html, css } from '../../class/Component.js';
 
 const attributes = {};
 const properties = {};
@@ -12,18 +11,18 @@ const style = css`
     display: block;
   }`;
 
-/** Friends {PageFriends} @class @ui @component <page-friends />
+/** FriendsList {FriendsList} @class @ui @component <friends-list />
   * description
   */
-  export default class PageFriends extends Component {
+  export default class FriendsList extends Component {
     static template = html`
       <template>
         <style>${style}</style>
         <slot></slot>
-        <friends-list />
+        лист
       </template>`;
 
-  /** Создание компонента {PageFriends} @constructor
+  /** Создание компонента {FriendsList} @constructor
     * @param {type} store param-description
     */
     constructor(store) {
@@ -33,7 +32,7 @@ const style = css`
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
-    * @return {PageFriends} #this текущий компонент
+    * @return {FriendsList} #this текущий компонент
     */
     mount(node) {
       super.mount(node, attributes, properties);
@@ -45,4 +44,4 @@ const style = css`
 
   }
 
-Component.init(PageFriends, 'page-friends', { attributes, properties });
+Component.init(FriendsList, 'friends-list', { attributes, properties });

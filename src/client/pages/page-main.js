@@ -4,21 +4,23 @@ import locator from '../script/locator.js';
 
 import AppBar from '../components/app-bar.js';
 import AppDrawer from '../components/app-drawer.js';
+import PageHeader from '../components/page-header.js';
 
 const attributes = {};
 const properties = {};
 
 const style = css`
   :host {
+    height: calc(100vh - 40px);
     display: block;
-    height: 100vh;
     position: relative;
   }
   #root {
     display: grid;
-    grid-template-rows: 1fr 96px;
     grid-template-columns: 1fr;
+    grid-template-rows: 40px 1fr 96px;
     height: 100vh;
+    font-family: var(--font);
   }
   slot {
     display: block;
@@ -38,6 +40,7 @@ export default class PageMain extends Component {
     <template>
       <style>${style}</style>
       <div id="root">
+        <page-header></page-header>
         <slot></slot>
         <app-bar></app-bar>
       </div>
