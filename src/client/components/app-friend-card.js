@@ -86,7 +86,6 @@ const style = css`
       super.mount(node, attributes, properties);
       const { store } = this.store();
       for (const [key, value] of Object.entries(store)) {
-        console.log(key);
         if (key === 'avatar' ) {
           updateChildrenAttribute(node, `#${key}`, 'src', store[key])
         } else {
