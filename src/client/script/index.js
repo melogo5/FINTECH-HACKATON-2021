@@ -5,6 +5,10 @@ import Router from '../class/Router.js';
 import PageRegistration from "../pages/page-registation.js";
 import PageLogin from "../pages/page-login.js";
 import PageMain from "../pages/page-main.js";
+import PageStickers from '../pages/page-stickers.js';
+import PageCamera from '../pages/page-camera.js';
+import PageFriends from '../pages/page-friends.js';
+import PageProfile from '../pages/page-profile.js';
 
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('/service-worker.js')
@@ -72,20 +76,20 @@ main();
         nesting: new Router()
           .route({
             path: 'camera',
-            node: 'page-profile',
+            node: 'page-camera',
             default: true
           })
           .route({
             path: 'stickers',
-            node: 'page-candidates'
+            node: 'page-stickers'
           })
           .route({
-            path: 'friends  ',
-            node: 'page-vacancy'
+            path: 'friends',
+            node: 'page-friends'
           })
           .route({
             path: 'profile',
-            node: 'page-notification'
+            node: 'page-profile'
           })
       });
 
