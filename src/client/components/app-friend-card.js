@@ -16,7 +16,7 @@ const badges = {
 
 const style = css`
   :host {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 5px 1px rgb(0 0 0 / 20%);
     border-radius: 15px;
     padding: 5px 5px;
     display: flex;

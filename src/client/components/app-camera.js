@@ -59,6 +59,7 @@ const style = css`
     */
     mount(node) {
       super.mount(node, attributes, properties);
+      let sended = false;
 
       /** @type {HTMLVideoElement} */
       // @ts-ignore
@@ -140,7 +141,10 @@ const style = css`
             // outputMessage.hidden = true;
             // outputData.parentElement.hidden = false;
             // outputData.innerText = code.data;
-            this.event("qr-code", code.data);
+            if (!sended) {
+              this.event("qr-code", code.data);
+              sended = true;
+            }
           } else {
             // outputMessage.hidden = false;
             // outputData.parentElement.hidden = true;

@@ -10,10 +10,9 @@ const properties = {};
 const style = css`
   :host {
     display: inline-block;
-    background: var(--sticker-card-color);
+    box-shadow: 0 2px 5px 1px rgb(0 0 0 / 20%);
     border-radius: 15px;
-    width: 40%;
-    margin: 4%;
+    width: 100%;
   }
   .stickerBody {
     width: 100%;

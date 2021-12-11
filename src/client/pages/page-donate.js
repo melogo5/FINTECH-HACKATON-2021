@@ -257,9 +257,10 @@ export default class PageDonate extends Component {
             max-height: 50%;
           }
         </style>
-        Помощь в сборе средств на фильтры для ИВЛ
+        Фильтры для аппаратов ИВЛ
         <slot></slot>
-        <app-sticker>3-58164</app-sticker>
+        <app-sticker paused>3-58164</app-sticker>
+        Помогите собрать средства и получите в награду анимированную кошечку!
         <apple-pay-button buttonstyle="black" type="plain" locale="en"></apple-pay-button>
         <div id="google-pay"></div>
       </template>`;
@@ -358,16 +359,21 @@ async function onApplePayButtonClicked() {
 
     request.onmerchantvalidation = event => {
       // Call your own server to request a new merchant session.
-      // throw new Error('test');
 
-      const merchantSessionPromise = validateMerchant();
+
+      // const merchantSessionPromise = validateMerchant();
       // const merchantSessionPromise = fetch("/authorizeMerchant")
       //   .then(res => res.json()) // Parse response as JSON.
       //   .catch(err => {
       //     console.error("Error fetching merchant session", err);
       //   });
 
-
+      const merchantSessionPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // throw new Error('test');
+          reject('test');
+        }, 4000);
+      });
       event.complete(merchantSessionPromise);
     };
 
@@ -408,7 +414,8 @@ async function onApplePayButtonClicked() {
     await response.complete(status);
   } catch (e) {
     // Handle errors
-    console.log('err', e);
+    // console.log('err', e);
+    throw e;
   }
 }
 
