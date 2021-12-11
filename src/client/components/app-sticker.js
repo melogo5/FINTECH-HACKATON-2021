@@ -2,7 +2,10 @@ import Component, { html, css } from '../class/Component.js';
 import $, { slottedValue } from '../class/DOM.js';
 
 const attributes = {};
-const properties = {};
+const properties = {
+  /** / paused */
+    paused(root, value, previous) {}
+};
 
 const style = css`
   :host {
@@ -10,6 +13,9 @@ const style = css`
   }
   slot {
     display: none;
+  }
+  :host([paused]) {
+    opacity: 0.5
   }`;
 
   const allStickers = {
@@ -58,7 +64,7 @@ const style = css`
         container: element, // the dom element that will contain the animation
         renderer: 'svg',
         loop: true,
-        autoplay: true,
+        autoplay: !this.paused,
         path // the path to the animation json
       });
 
