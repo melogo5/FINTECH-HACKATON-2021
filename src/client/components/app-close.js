@@ -7,6 +7,9 @@ const style = css`
   :host {
     display: block;
     cursor: pointer;
+  }
+  svg {
+    display: block;
   }`;
 
 /** Иконка для закрытия {AppClose} @class @ui @component <app-close />

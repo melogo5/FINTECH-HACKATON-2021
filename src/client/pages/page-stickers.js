@@ -49,8 +49,6 @@ export default class PageStickers extends Component {
 
     const list = $('#stickerList', node);
 
-    console.log(list);
-
     for (let i = 0; i < stickersArray.length; i++) {
       const stickerCard = new StickerListItem(stickersArray[i]);
       list.append(stickerCard);

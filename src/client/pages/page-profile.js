@@ -5,7 +5,29 @@ const properties = {};
 
 const style = css`
   :host {
-    display: block;
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+  }
+  .myAvatar {
+    margin-top: 25px;
+    border-radius: 100%;
+  }
+  .nameProfile {
+    justify-self: center;
+    font-size: 28px;
+  }
+  .statusProfile {
+    color: #00E009;
+    justify-self: center;
+  }
+  .donationsProfile {
+    display: flex;
+    justify-content: space-between;
+  }
+  .stickersProfile {
+    display: flex;
+    justify-content: space-between;
   }
   slot {
     display: block;
@@ -19,7 +41,17 @@ const style = css`
       <template>
         <style>${style}</style>
         <slot></slot>
-        Профиль
+        <img class="myAvatar" src="../images/Steve_Jobs.jpg">
+        <div class="nameProfile">Стив Джобс</div>
+        <div class="statusProfile">Неравнодушный</div>
+        <div class="donationsProfile">
+          <p>пожертвованно:</p>
+          <p>400:</p>
+        </div>
+        <div class="stickersProfile">
+          <p>стикеров</p>
+          <p>10</p>
+        </div>
       </template>`;
 
   /** Создание компонента {PageProfile} @constructor

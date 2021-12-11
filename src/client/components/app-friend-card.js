@@ -1,5 +1,7 @@
 import Component, { html, css } from '../class/Component.js';
 import $, { updateChildrenText, updateChildrenAttribute } from '../class/DOM.js';
+import PageFriends from '../pages/page-friends.js';
+import AppDrawer from './app-drawer.js';
 
 const attributes = {};
 const properties = {};
@@ -14,6 +16,9 @@ const badges = {
 
 const style = css`
   :host {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    border-radius: 15px;
+    padding: 5px 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,7 +26,7 @@ const style = css`
     margin-bottom: 10px;
   }
   #name {
-    font-size: 16px;
+    font-size: 18px;
     margin-right: 5px;
   }
   .nameWrapper {
@@ -42,6 +47,9 @@ const style = css`
   .flexAlignCenter {
     align-items: center;
   }
+  .flexAlignBaseline {
+    align-items: baseline;
+  }
   .flexJustifyBetween {
   }
   slot {
@@ -55,11 +63,13 @@ const style = css`
     static template = html`
       <template>
         <style>${style}</style>
-        <div class="flexWrapper flexAlignCenter flexJustifyBetween">
+        <div class="flexWrapper flexAlignCenter flexJustifyBetween" style="width: 100%;">
           <img id="avatar" />
           <div>
-            <div id="name"></div>
-            <div id="badge"></div>
+            <div class="flexWrapper flexAlignBaseline">
+              <div id="name"></div>
+              <div id="badge"></div>
+            </div>
             <div class="flexWrapper">
               <div>Пожертвовано:</div><div id="donateAmount"></div>
             </div>
@@ -71,11 +81,11 @@ const style = css`
       </template>`;
 
   /** Создание компонента {AppFriendCard} @constructor
-    * @param {type} store param-description
+    * @param {type} data param-description
     */
-    constructor(store) {
+    constructor(data) {
       super();
-      this.store({ store });
+      this.store({ data });
     }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
@@ -84,20 +94,31 @@ const style = css`
     */
     mount(node) {
       super.mount(node, attributes, properties);
-      const { store } = this.store();
-      for (const [key, value] of Object.entries(store)) {
-        console.log(key);
+      const { data } = this.store();
+      for (const [key, value] of Object.entries(data)) {
         if (key === 'avatar' ) {
-          updateChildrenAttribute(node, `#${key}`, 'src', store[key])
+          updateChildrenAttribute(node, `#${key}`, 'src', value);
+        } else if (key === 'donateAmount') {
+          updateChildrenText(node, `#${key}`, `${value} ${this.declOfNum(value, ['рубль', 'рубля', 'рублей'])}`);
         } else {
-          updateChildrenText(node, `#${key}`, store[key]);
+          updateChildrenText(node, `#${key}`, value);
         }
       }
-      $('#badge', node).style.color = badges[store.badge];
+      $('#badge', node).style.color = badges[data.badge];
+      node.addEventListener('click', (event) => {
+        locator.channel.send('drawer-open', {
+          page: new PageFriends(),
+          params: {
+            title: `Карточка друга: ${data.name}`
+          }
+        });
+      });
       return this;
     }
 
-
+    declOfNum(number, words) {
+      return words[(number % 100 > 4 && number % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(number % 10 < 5) ? Math.abs(number) % 10 : 5]];
+    }
   }
 
 Component.init(AppFriendCard, 'friend-card', { attributes, properties });
