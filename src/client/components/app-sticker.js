@@ -27,10 +27,10 @@ const style = css`
   /** Создание компонента {AppSticker} @constructor
     // * @param {type} store param-description
     */
-    // constructor(store) {
-    //   super();
-    //   this.store({ store });
-    // }
+    constructor(store) {
+      super();
+      this.store({ store });
+    }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
@@ -41,6 +41,8 @@ const style = css`
 
       // debugger;
       const element = $('div', node);
+      element.style.width = '80px';
+      element.style.height = '80px';
       // @ts-ignore
       window.lottie.loadAnimation({
         container: element, // the dom element that will contain the animation

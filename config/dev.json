@@ -1,7 +1,5 @@
 {
     "host": "localhost",
     "port": 7777,
-    "serve": "./src/client/",
-
-    "proxy": "graham.bellintegrator.com"
+    "serve": "./src/client/"
 }
