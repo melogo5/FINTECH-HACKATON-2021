@@ -71,20 +71,20 @@ main();
         node: 'page-main',
         nesting: new Router()
           .route({
-            path: 'profile',
+            path: 'camera',
             node: 'page-profile',
             default: true
           })
           .route({
-            path: 'candidates',
+            path: 'stickers',
             node: 'page-candidates'
           })
           .route({
-            path: 'vacancy',
+            path: 'friends  ',
             node: 'page-vacancy'
           })
           .route({
-            path: 'notification',
+            path: 'profile',
             node: 'page-notification'
           })
       });
