@@ -1,5 +1,8 @@
 import Component, { html, css } from '../class/Component.js';
-import FriendsList from '../components/friends/friends-list.js';
+import AppList from '../components/app-list.js';
+import AppFriendCard from '../components/app-friend-card.js';
+import AppListItem from '../components/app-list-item.js';
+import $ from '../class/DOM.js';
 
 const attributes = {};
 const properties = {};
@@ -20,7 +23,7 @@ const style = css`
       <template>
         <style>${style}</style>
         <slot></slot>
-        <friends-list />
+        <app-list></app-list>
       </template>`;
 
   /** Создание компонента {PageFriends} @constructor
@@ -37,8 +40,14 @@ const style = css`
     */
     mount(node) {
       super.mount(node, attributes, properties);
-
       const { store } = this.store();
+      const list = $('app-list', node);
+      for (let i = 0; i < friendList.length; i++) {
+        const listItem = new AppListItem();
+        const friendCard = new AppFriendCard(friendList[i]);
+        listItem.append(friendCard);
+        list.append(listItem);
+      }
       return this;
     }
 
