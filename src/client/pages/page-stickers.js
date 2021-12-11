@@ -1,6 +1,4 @@
 import Component, { html, css } from '../class/Component.js';
-import AppList from '../components/app-list.js';
-import AppListItem from '../components/app-list-item.js';
 import StickerListItem from '../components/sticker-list-item.js';
 import $ from '../class/DOM.js';
 
@@ -26,12 +24,11 @@ const style = css`
   :host {
     display: block;
   }
-  .stickerList {
+  #stickerList {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-  .sticker {
-    /*display: inline-block;*/
+    justify-items: center;
+    gap: 5px;
   }
   slot {
     display: block;
@@ -44,8 +41,7 @@ export default class PageStickers extends Component {
   static template = html`
       <template>
         <style>${style}</style>
-        <slot></slot>
-        <app-list class="stickerList"></app-list>
+        <div id="stickerList"></div>
       </template>`;
 
   // /** Создание компонента {PageStickers} @constructor
@@ -64,14 +60,13 @@ export default class PageStickers extends Component {
     super.mount(node, attributes, properties);
     const { store } = this.store();
 
-    const list = $('app-list', node);
-    for (let i = 0; i < stickersArray.length; i++) {
-      const listItem = new AppListItem();
+    const list = $('#stickerList', node);
 
+    console.log(list);
+
+    for (let i = 0; i < stickersArray.length; i++) {
       const stickerCard = new StickerListItem(stickersArray[i]);
-      listItem.append(stickerCard);
-      listItem.classList.add("sticker");
-      list.append(listItem);
+      list.append(stickerCard);
     }
 
     return this;
