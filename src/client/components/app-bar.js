@@ -16,7 +16,8 @@ const style = css`
     display: block;
   }
   .active {
-    background: var(--bell-red) !important;
+    --gradient: var(--secondary-btn-gradient);
+    background: linear-gradient(var(--gradient)) !important;
     color: white !important;
   }
   .menuItem {

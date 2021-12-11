@@ -15,9 +15,9 @@ const texts = {
 const style = css`
   :host {
     --gradient: var(--main-btn-gradient);
+    background: linear-gradient(var(--gradient));
     display: grid;
 
-    background: linear-gradient(var(--gradient));
     height: 40px;
     justify-content: center;
     color: white;
