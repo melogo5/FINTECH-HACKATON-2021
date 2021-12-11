@@ -1,5 +1,7 @@
 import Component, { html, css } from '../class/Component.js';
 
+import AppSticker from '../components/app-sticker.js';
+
 const attributes = {};
 const properties = {};
 
@@ -20,6 +22,7 @@ const style = css`
         <style>${style}</style>
         <slot></slot>
         Камера
+        <app-sticker></app-sticker>
       </template>`;
 
   /** Создание компонента {PageCamera} @constructor

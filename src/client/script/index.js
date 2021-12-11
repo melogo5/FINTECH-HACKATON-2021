@@ -58,7 +58,7 @@ main();
       .route({
         path: 'login',
         node: 'page-login',
-        default: true
+        // default: true
         // callback: (element, options, route, router) => {
         //   if (options.location.length > 1) {
         //     const x = element.shadowRoot.querySelector('#' + options.location[1]).getBoundingClientRect().top;
@@ -66,13 +66,14 @@ main();
         //   }
         // }
       })
-      .route({
-        path: 'register',
-        node: 'page-registration'
-      })
+      // .route({
+      //   path: 'register',
+      //   node: 'page-registration'
+      // })
       .route({
         name: 'main',
         node: 'page-main',
+        default: true,
         nesting: new Router()
           .route({
             path: 'camera',

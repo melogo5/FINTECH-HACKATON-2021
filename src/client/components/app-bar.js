@@ -103,7 +103,7 @@ export default class AppBar extends Component {
     // this.main();
 
     locator.channel.on('app-routing', path => {
-      const page = path[1] || 'profile';
+      const page = path[1] || 'camera';
       $(`a[href="#main/${page}"]`, node)?.classList?.add('active');
     });
 
