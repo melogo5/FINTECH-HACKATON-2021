@@ -71,7 +71,7 @@ const style = css`
 
       /** @type {HTMLVideoElement} */
       // @ts-ignore
-      const video  = $('video', node);
+      const video = $('video', node);
 
       /** @type {HTMLCanvasElement} */
       // @ts-ignore
@@ -108,11 +108,11 @@ const style = css`
         video.srcObject = stream;
         video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
         video.play();
+        this.store({ stream, paused: false });
         requestAnimationFrame(tick);
 
         list.remove();
         access.remove();
-
         // debugger;
 
         // setTimeout(() => qr(stream), 100);
@@ -158,7 +158,8 @@ const style = css`
             // outputData.parentElement.hidden = true;
           }
         }
-        requestAnimationFrame(tick);
+        const { paused } = this.store();
+        if (!paused) requestAnimationFrame(tick);
       }
 
 
@@ -183,6 +184,22 @@ const style = css`
       };
 
       access.addEventListener('click', getCameraSelection);
+      return this;
+    }
+
+    /** */
+    unmount(node) {
+      const { stream } = this.store();
+
+      if (stream) {
+        console.log(stream);
+        stream.getTracks().forEach(track => {
+          track.stop();
+          console.log(track);
+        });
+        this.store({ paused: true });
+      }
+
       return this;
     }
   }

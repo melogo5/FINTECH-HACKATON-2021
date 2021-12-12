@@ -39,6 +39,10 @@ const allStickers = {
   "3-58139": {
     stickerPath: '/stickers/3-58139.json',
     name: "кошкодевочка 5"
+  },
+  "3-58140": {
+    stickerPath: '/stickers/3-58140.json',
+    name: "кошкодевочка 6"
   }
 };
 
