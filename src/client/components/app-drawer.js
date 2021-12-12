@@ -18,7 +18,7 @@ const style = css`
     right: 0;
     background: rgba(0,0,0,.6);
     display: block;
-    width: 100vh;
+    width: 100vw;
     height: 100%;
     z-index: 5;
   }

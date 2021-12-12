@@ -6,7 +6,7 @@ import AppDrawer from './app-drawer.js';
 const attributes = {};
 const properties = {};
 
-const stickersArray = ["3-58164", "3-58150", "3-58145", "3-58138", "3-58139"];
+const stickersArray = ["3-58164", "3-58150", "3-58145", "3-58138", "3-58139", "3-58140"];
 
 const badges = {
   'Красавчик': '#E0CA00',
@@ -121,10 +121,13 @@ const style = css`
     getFriendStickers() {
       const stickers = [];
       const myStickers = this.getMyStickers();
+      const stickersArrayCopy = [...stickersArray];
       let { stickersCount } = this.store().data;
-      stickersCount = stickersCount > stickersArray.length ? stickersArray.length : stickersCount;
+      stickersCount = stickersCount > stickersArrayCopy.length ? stickersArrayCopy.length : stickersCount;
       for (let i = 0; i < stickersCount; i++) {
-        const sticker = stickersArray[this.getRandomInRange(0, stickersArray.length - 1)];
+        const stickerIndex = this.getRandomInRange(0, stickersArrayCopy.length - 1);
+        const sticker = stickersArrayCopy[stickerIndex];
+        stickersArrayCopy.splice(stickerIndex, 1);
         stickers.push({
           id: sticker,
           paused: !myStickers.includes(sticker)
@@ -134,7 +137,7 @@ const style = css`
     }
 
     getMyStickers() {
-      return ["3-58164", "3-58150"];
+      return ["3-58164", "3-58150", "3-58138", "3-58140"];
     }
 
     getRandomInRange(min, max) {
