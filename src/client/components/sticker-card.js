@@ -1,6 +1,7 @@
 import Component, { html, css } from '../class/Component.js';
 import AppSticker from './app-sticker.js';
 import SameSticker from './friends-same-sticker.js';
+import AppSocial from './app-social.js';
 
 const attributes = {};
 const properties = {};
@@ -12,6 +13,17 @@ const style = css`
   .donationCount {
     text-align: center;
     margin-top: 5px;
+  }
+  .social {
+    box-shadow: 0 0 3px 3px #ccc;
+    padding: 10px 0px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 25px;
   }
   slot {
     display: block;
@@ -54,6 +66,10 @@ const style = css`
 
       const sameSticker = new SameSticker();
       node.appendChild(sameSticker);
+
+      const social = new AppSocial();
+      social.classList.add("social");
+      node.appendChild(social);
 
       return this;
     }
