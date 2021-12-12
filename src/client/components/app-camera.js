@@ -26,7 +26,7 @@ const style = css`
   #camera-access {
     width: 100%;
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
   }
   video {
     width: 100%;

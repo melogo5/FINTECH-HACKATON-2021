@@ -40,7 +40,8 @@ export default class StickerListItem extends Component {
   constructor(sticker) {
     super();
     if (!sticker) return;
-    this.innerText = sticker;
+    this.store({ sticker });
+    this.innerText = sticker.id;
   }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
@@ -50,14 +51,14 @@ export default class StickerListItem extends Component {
   mount(node) {
     super.mount(node, attributes, properties);
 
-    // const { sticker } = this.store();
-    const slot = $('slot', node);
-    const text = slottedValue(slot);
-    const stickerComponent = new AppSticker(text);
+    const { sticker } = this.store();
+    const text = sticker.id;
+
+    const stickerComponent = new AppSticker(sticker);
 
     node.addEventListener("click", () => {
       locator.channel.send('drawer-open', {
-        page: new StickerCard(text),
+        page: new StickerCard(sticker),
         params: {
           title: text
         }

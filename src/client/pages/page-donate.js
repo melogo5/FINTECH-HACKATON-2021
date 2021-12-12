@@ -18,6 +18,15 @@ const style = css`
     margin: 16px auto;
     width: 90%;
   }
+  #title {
+    text-align: center;
+  }
+  #title, #description {
+    font-size: 20px;
+  }
+  #infoWrapper {
+    padding: 0 20px;
+  }
   apple-pay-button {
     margin-bottom: 10px;
     display: block;
@@ -273,10 +282,12 @@ export default class PageDonate extends Component {
             text-align: center;
           }
         </style>
-        <div class="aim">Фильтры для аппаратов ИВЛ</div>
-        <slot></slot>
-        <app-sticker paused>3-58164</app-sticker>
-        <div class="bounty">Помогите собрать средства и получите в награду анимированную кошечку!</div>
+        <div id="infoWrapper">
+          <div id="title">Фильтры для аппаратов ИВЛ</div>
+          <slot></slot>
+          <app-sticker paused>3-58164</app-sticker>
+          <div id="description">Помогите собрать средства и получите в награду анимированную кошечку!</div>
+        </div>
         <div id="payments">
           <apple-pay-button buttonstyle="black" type="plain" locale="en"></apple-pay-button>
           <div id="google-pay"></div>

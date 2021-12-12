@@ -1,10 +1,12 @@
 import Component, { html, css } from '../class/Component.js';
 import $, { updateChildrenText, updateChildrenAttribute } from '../class/DOM.js';
-import PageFriends from '../pages/page-friends.js';
+import PageStickers from '../pages/page-stickers.js';
 import AppDrawer from './app-drawer.js';
 
 const attributes = {};
 const properties = {};
+
+const stickersArray = ["3-58164", "3-58150", "3-58145", "3-58138", "3-58139"];
 
 const badges = {
   'Красавчик': '#E0CA00',
@@ -107,13 +109,36 @@ const style = css`
       $('#badge', node).style.color = badges[data.badge];
       node.addEventListener('click', (event) => {
         locator.channel.send('drawer-open', {
-          page: new PageFriends(),
+          page: new PageStickers(this.getFriendStickers()),
           params: {
-            title: `Карточка друга: ${data.name}`
+            title: `Стикеры друга: ${data.name}`
           }
         });
       });
       return this;
+    }
+
+    getFriendStickers() {
+      const stickers = [];
+      const myStickers = this.getMyStickers();
+      let { stickersCount } = this.store().data;
+      stickersCount = stickersCount > stickersArray.length ? stickersArray.length : stickersCount;
+      for (let i = 0; i < stickersCount; i++) {
+        const sticker = stickersArray[this.getRandomInRange(0, stickersArray.length - 1)];
+        stickers.push({
+          id: sticker,
+          paused: !myStickers.includes(sticker)
+        });
+      }
+      return stickers;
+    }
+
+    getMyStickers() {
+      return ["3-58164", "3-58150"];
+    }
+
+    getRandomInRange(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
     }
 
     declOfNum(number, words) {

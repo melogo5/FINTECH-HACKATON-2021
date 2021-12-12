@@ -15,7 +15,8 @@ const style = css`
     display: none;
   }
   :host([paused]) {
-    opacity: 0.5
+    opacity: 0.5;
+    filter: grayscale(100%);
   }`;
 
 const allStickers = {
@@ -55,38 +56,38 @@ export default class AppSticker extends Component {
   /** Создание компонента {AppSticker} @constructor
     // * @param {type} store param-description
     */
-  constructor(name) {
-    super();
-    if (name) this.innerText = name;
-  }
+    constructor(sticker) {
+      super();
+      this.store({ sticker });
+      if (sticker?.id) this.innerText = sticker.id;
+    }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
     * @return {AppSticker} #this текущий компонент
     */
-  mount(node) {
-    super.mount(node, attributes, properties);
-    const slot = $('slot', node);
-    const text = slottedValue(slot);
-    const path = allStickers[text]?.stickerPath;
-    if (!path) return;
+    mount(node) {
+      super.mount(node, attributes, properties);
+      const { sticker } = this.store();
+      const stickerId = sticker?.id ?? slottedValue($('slot', node));
+      const path = allStickers[stickerId]?.stickerPath;
+      if (!path) return;
+      this.paused = sticker.paused;
 
-    // debugger;
-    const element = $('div', node);
-    // @ts-ignore
-    window.lottie.loadAnimation({
-      container: element, // the dom element that will contain the animation
-      renderer: 'svg',
-      loop: true,
-      autoplay: !this.paused,
-      path // the path to the animation json
-    });
+      // debugger;
+      const element = $('div', node);
+      // @ts-ignore
+      window.lottie.loadAnimation({
+        container: element, // the dom element that will contain the animation
+        renderer: 'svg',
+        loop: true,
+        autoplay: !this.paused,
+        path // the path to the animation json
+      });
 
-    // const { store } = this.store();
-    return this;
+      // const { store } = this.store();
+      return this;
+    }
   }
-
-
-}
 
 Component.init(AppSticker, 'app-sticker', { attributes, properties });

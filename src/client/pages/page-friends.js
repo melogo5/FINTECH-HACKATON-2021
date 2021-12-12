@@ -100,7 +100,6 @@ const style = css`
         <style>${style}</style>
         <slot></slot>
         <app-list></app-list>
-        <app-button icon='sdada' secondary icon></app-button>
       </template>`;
 
   /** Создание компонента {PageFriends} @constructor
@@ -125,14 +124,8 @@ const style = css`
         listItem.append(friendCard);
         list.append(listItem);
       }
-      const addButton = $('app-button', node);
-      addButton.style.position = 'fixed';
-      addButton.style.right = '10px';
-      addButton.style.bottom = '110px';
       return this;
     }
-
-
   }
 
 Component.init(PageFriends, 'page-friends', { attributes, properties });

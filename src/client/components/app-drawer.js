@@ -40,7 +40,6 @@ const style = css`
     align-items: center;
     justify-content: center;
     color: white;
-    border-radius: 0 0 10px 10px;
     --gradient: var(--secondary-btn-gradient);
     background: linear-gradient(var(--gradient)) !important;
   }

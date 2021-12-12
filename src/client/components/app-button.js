@@ -1,5 +1,5 @@
 import Component, { html, css } from '../class/Component.js';
-import $ from '../class/DOM.js';
+import $, { updateChildrenText } from '../class/DOM.js';
 
 const attributes = {};
 const properties = {};
@@ -69,10 +69,14 @@ const style = css`
     */
     mount(node) {
       super.mount(node, attributes, properties);
+      const { params } = this.store();
       if (this.getAttribute('icon')) {
         const iconElement = document.createElement('img');
         iconElement.setAttribute('src', '../icons/add.svg');
         $('button', node).append(iconElement);
+      }
+      if (params?.title) {
+        updateChildrenText(node, 'button', params.title);
       }
       return this;
     }

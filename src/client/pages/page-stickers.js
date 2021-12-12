@@ -44,10 +44,10 @@ export default class PageStickers extends Component {
   // /** Создание компонента {PageStickers} @constructor
   //   * @param {type} store param-description
   //   */
-  // constructor(store) {
-  //   super();
-  //   this.store({ store });
-  // }
+  constructor(stickers) {
+    super();
+    this.store({ stickers });
+  }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
@@ -55,12 +55,22 @@ export default class PageStickers extends Component {
     */
   mount(node) {
     super.mount(node, attributes, properties);
-    const { store } = this.store();
-
+    console.log(this.store())
+    let stickers;
+    if (this.store()?.stickers) {
+      stickers = this.store()?.stickers;
+    } else {
+      // Это значит, что открываются свои стикеры
+      stickers = stickersArray.map((id) => {
+        return {
+          id,
+          paused: false
+        }
+      });
+    }
     const list = $('#stickerList', node);
-
-    for (let i = 0; i < stickersArray.length; i++) {
-      const stickerCard = new StickerListItem(stickersArray[i]);
+    for (let i = 0; i < stickers.length; i++) {
+      const stickerCard = new StickerListItem(stickers[i]);
       list.append(stickerCard);
     }
 
