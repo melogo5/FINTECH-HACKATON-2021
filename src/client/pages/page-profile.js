@@ -36,9 +36,19 @@ const style = css`
 /** Profile {PageProfile} @class @ui @component <page-profile />
   * description
   */
-  export default class PageProfile extends Component {
-    static template = html`
+export default class PageProfile extends Component {
+  static template = html`
       <template>
+      <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
+      <script type="text/javascript">
+        VK.init({apiId: 1914120});
+      </script>
+
+      <!-- VK Widget -->
+      <div id="vk_auth"></div>
+      <script type="text/javascript">
+        VK.Widgets.Auth("vk_auth", {"onAuth":function(data) {alert('user '+data['uid']+' authorized');}});
+      </script>
         <style>${style}</style>
         <slot></slot>
         <img class="myAvatar" src="../images/Steve_Jobs.jpg">
@@ -57,23 +67,23 @@ const style = css`
   /** Создание компонента {PageProfile} @constructor
     * @param {type} store param-description
     */
-    constructor(store) {
-      super();
-      this.store({ store });
-    }
+  constructor(store) {
+    super();
+    this.store({ store });
+  }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
     * @return {PageProfile} #this текущий компонент
     */
-    mount(node) {
-      super.mount(node, attributes, properties);
+  mount(node) {
+    super.mount(node, attributes, properties);
 
-      const { store } = this.store();
-      return this;
-    }
-
-
+    const { store } = this.store();
+    return this;
   }
+
+
+}
 
 Component.init(PageProfile, 'page-profile', { attributes, properties });

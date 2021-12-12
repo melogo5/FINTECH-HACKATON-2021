@@ -262,11 +262,21 @@ export default class PageDonate extends Component {
             height:inherit;
             max-height: 50%;
           }
+          .aim {
+            margin: 15px 0;
+            text-align: center;
+            font-size: 18px;
+          }
+          .bounty {
+            margin: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+          }
         </style>
-        Фильтры для аппаратов ИВЛ
+        <div class="aim">Фильтры для аппаратов ИВЛ</div>
         <slot></slot>
         <app-sticker paused>3-58164</app-sticker>
-        Помогите собрать средства и получите в награду анимированную кошечку!
+        <div class="bounty">Помогите собрать средства и получите в награду анимированную кошечку!</div>
         <div id="payments">
           <apple-pay-button buttonstyle="black" type="plain" locale="en"></apple-pay-button>
           <div id="google-pay"></div>
