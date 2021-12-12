@@ -4,6 +4,7 @@ import SameSticker from './friends-same-sticker.js';
 import AppSocial from './app-social.js';
 import AppButton from './app-button.js';
 import Progress from './progress-indicator.js';
+import locator from '../script/locator.js';
 
 const attributes = {};
 const properties = {};
@@ -134,6 +135,9 @@ const style = css`
         buyStickerButton.setAttribute('wide', true);
         buyStickerButton.classList.add('submitBtn');
         node.appendChild(buyStickerButton);
+        buyStickerButton.addEventListener('click', (event) => {
+          locator.go('main/donate');
+        });
       }
 
       return this;
