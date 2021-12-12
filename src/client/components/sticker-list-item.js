@@ -7,6 +7,15 @@ import StickerCard from './sticker-card.js';
 const attributes = {};
 const properties = {};
 
+const stickersName = {
+  "3-58138": "Kitty eyes",
+  "3-58139": "Kitty drink",
+  "3-58140": "Kitty lick",
+  "3-58145": "Kitty mrrr",
+  "3-58150": "Kitty dance",
+  "3-58164": "Kitty"
+}
+
 const style = css`
   :host {
     display: inline-block;
@@ -60,7 +69,7 @@ export default class StickerListItem extends Component {
       locator.channel.send('drawer-open', {
         page: new StickerCard(sticker),
         params: {
-          title: text
+          title: stickersName[text]
         }
       });
     });
