@@ -56,11 +56,11 @@ export default class PageProfile extends Component {
         <div class="nameProfile">Стив Джобс</div>
         <div class="statusProfile">Неравнодушный</div>
         <div class="donationsProfile">
-          <p>пожертвованно:</p>
+          <p>Пожертвованно:</p>
           <p>1630</p>
         </div>
         <div class="stickersProfile">
-          <p>стикеров:</p>
+          <p>Стикеров:</p>
           <p>5</p>
         </div>
       </template>`;
