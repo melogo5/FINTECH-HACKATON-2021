@@ -44,7 +44,8 @@ const style = css`
       const camera = $('app-camera', node);
       const goDonation = e => {
         camera.removeEventListener('click', goDonation);
-        setTimeout(() => locator.go(`main/donate/${this.getSticker()}`), 1000);
+        setTimeout(() => locator.go(`main/donate/3-58164`), 1000);
+        // setTimeout(() => locator.go(`main/donate/${this.getSticker()}`), 1000);
       }
       camera.addEventListener('qr-code', goDonation);
 
