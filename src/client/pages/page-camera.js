@@ -44,7 +44,6 @@ const style = css`
       super.mount(node, attributes, properties);
       const camera = $('app-camera', node);
       const goDonation = e => {
-        console.log(e.detail);
         camera.removeEventListener('click', goDonation);
         setTimeout(() => locator.go('main/donate'), 1000);
       }

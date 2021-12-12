@@ -167,8 +167,6 @@ const style = css`
           .filter(device => device.kind === 'videoinput');
         // const devices = await QrScanner.listCameras(true);
 
-        console.log(devices);
-
         if (devices.length === 1) {
           selectDevice(devices[0]);
           return;

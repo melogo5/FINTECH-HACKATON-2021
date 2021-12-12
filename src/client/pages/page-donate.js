@@ -607,7 +607,6 @@ function addGooglePayButton(root, proceed) {
         },
         buttonSizeMode: 'fill'
       });
-    console.log(root, button);
   root.appendChild(button);
 }
 
