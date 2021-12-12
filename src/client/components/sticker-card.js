@@ -3,6 +3,7 @@ import AppSticker from './app-sticker.js';
 import SameSticker from './friends-same-sticker.js';
 import AppSocial from './app-social.js';
 import AppButton from './app-button.js';
+import Progress from './progress-indicator.js';
 
 const attributes = {};
 const properties = {};
@@ -28,6 +29,11 @@ const style = css`
     width: 80%;
     margin: auto;
     margin-top: 25px;
+  }
+  .counter {
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
   }
   slot {
     display: block;
@@ -67,13 +73,21 @@ const style = css`
         info.innerText = "Вы пожертвовали 200 рублей в фонд детей-сирот";
         info.classList.add("donationCount");
         node.appendChild(info);
-  
+
         const sameSticker = new SameSticker();
         node.appendChild(sameSticker);
-  
+
         const social = new AppSocial();
         social.classList.add("social");
         node.appendChild(social);
+
+        const progressIndicator = new Progress({
+          amount: 1630,
+          aim: 5000
+        });
+        progressIndicator.classList.add("counter");
+
+        node.appendChild(progressIndicator);
       } else {
         const info = document.createElement("div");
         info.innerText = "У вас пока нет этого стикера!";

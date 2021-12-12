@@ -82,13 +82,6 @@ export default class PageProfile extends Component {
 
     const { store } = this.store();
 
-    const progressIndicator = new Progress({
-      amount: 1630,
-      aim: 5000
-    });
-
-    node.appendChild(progressIndicator);
-
     return this;
   }
 
