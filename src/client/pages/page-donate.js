@@ -294,13 +294,13 @@ export default class PageDonate extends Component {
         </div>
       </template>`;
 
-  /** Создание компонента {Class} @constructor
-    * @param {type} store param-description
-    */
-    constructor(sticker) {
-      super();
-      this.store({ sticker });
-    }
+  // /** Создание компонента {Class} @constructor
+  //   * @param {type} store param-description
+  //   */
+  //   constructor(sticker) {
+  //     super();
+  //     this.store({ sticker });
+  //   }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
@@ -327,6 +327,11 @@ export default class PageDonate extends Component {
     const googlePay = $('#google-pay', node);
     const gps = $('#google-pay-script', node);
     gps.onload = () => onGooglePayLoaded(googlePay, proceed);
+
+    this.addEventListener('component-routing', e => {
+      const location = e?.detail?.options?.location || [];
+      console.log('route', location);
+    });
 
     return this;
   }
