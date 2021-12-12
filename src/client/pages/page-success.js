@@ -29,7 +29,7 @@ const style = css`
     justify-items: center;
     width: 80%;
     margin: auto;
-    margin-top: 25px;
+    margin-top: 8px;
   }
   .allStickersBtn {
     width: 80%;
@@ -40,6 +40,10 @@ const style = css`
   }
   .allStickersBtn .text {
     color: white;
+  }
+  .socialLabel {
+    text-align: center;
+    margin-bottom: 0px;
   }
   slot {
     display: block;
@@ -56,12 +60,13 @@ const style = css`
         <app-sticker>3-58164</app-sticker>
         <slot></slot>
         <div class="text">Поделитесь с друзьями!</div>
-        <app-social class="social"></app-social>
         <app-button secondary wide class="allStickersBtn" id="camera-access">
           <a class="text" href="#main/stickers">
             все мои стикеры
           </a>
         </app-button>
+        <p class="socialLabel">Поделиться в соц. сетях</p>
+        <app-social class="social"></app-social>
       </template>`;
 
   // /** Создание компонента {PageSuccess} @constructor

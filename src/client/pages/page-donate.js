@@ -1,5 +1,6 @@
-import Component, {html, css} from '../class/Component.js';
+import Component, { html, css } from '../class/Component.js';
 import locator from "../script/locator.js";
+import Progress from '../components/progress-indicator.js';
 
 import AppSticker from '../components/app-sticker.js';
 import $ from '../class/DOM.js';
@@ -23,9 +24,15 @@ const style = css`
   }
   #title, #description {
     font-size: 20px;
+    text-align: center;
   }
   #infoWrapper {
     padding: 0 20px;
+  }
+  #price {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
   }
   apple-pay-button {
     margin-bottom: 10px;
@@ -276,6 +283,12 @@ export default class PageDonate extends Component {
             text-align: center;
             font-size: 18px;
           }
+          .counter {
+            width: 80%;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 25px;
+          }
           .bounty {
             margin: 15px;
             margin-bottom: 25px;
@@ -286,12 +299,14 @@ export default class PageDonate extends Component {
           <div id="title">Фильтры для аппаратов ИВЛ</div>
           <slot></slot>
           <app-sticker paused>3-58164</app-sticker>
+          <div id="price">199 р.</div>
           <div id="description">Помогите собрать средства и получите в награду анимированную кошечку!</div>
         </div>
         <div id="payments">
           <apple-pay-button buttonstyle="black" type="plain" locale="en"></apple-pay-button>
           <div id="google-pay"></div>
         </div>
+
       </template>`;
 
   // /** Создание компонента {Class} @constructor
@@ -333,13 +348,20 @@ export default class PageDonate extends Component {
       console.log('route', location);
     });
 
+    const progressIndicator = new Progress({
+      amount: 1630,
+      aim: 5000
+    });
+    progressIndicator.classList.add("counter");
+    node.appendChild(progressIndicator);
+
     return this;
   }
 
 
 }
 
-Component.init(PageDonate, 'page-donate', {attributes, properties});
+Component.init(PageDonate, 'page-donate', { attributes, properties });
 
 // APPLE PAY
 async function onApplePayButtonClicked() {
@@ -581,7 +603,7 @@ function getGooglePaymentDataRequest() {
  */
 function getGooglePaymentsClient() {
   if (paymentsClient === null) {
-    paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
+    paymentsClient = new google.payments.api.PaymentsClient({ environment: 'TEST' });
   }
   return paymentsClient;
 }
@@ -595,14 +617,14 @@ function getGooglePaymentsClient() {
 function onGooglePayLoaded(root, proceed) {
   const paymentsClient = getGooglePaymentsClient();
   paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
-    .then(function(response) {
+    .then(function (response) {
       if (response.result) {
         addGooglePayButton(root, proceed);
         // @todo prefetch payment data to improve performance after confirming site functionality
         // prefetchGooglePaymentData();
       }
     })
-    .catch(function(err) {
+    .catch(function (err) {
       // show error in developer console for debugging
       console.error(err);
     });
@@ -618,11 +640,11 @@ function addGooglePayButton(root, proceed) {
   const paymentsClient = getGooglePaymentsClient();
   const button =
     paymentsClient.createButton({
-        onClick: () => {
-          onGooglePaymentButtonClicked(proceed)
-        },
-        buttonSizeMode: 'fill'
-      });
+      onClick: () => {
+        onGooglePaymentButtonClicked(proceed)
+      },
+      buttonSizeMode: 'fill'
+    });
   root.appendChild(button);
 }
 
@@ -667,11 +689,11 @@ function onGooglePaymentButtonClicked(proceed) {
 
   const paymentsClient = getGooglePaymentsClient();
   paymentsClient.loadPaymentData(paymentDataRequest)
-    .then(function(paymentData) {
+    .then(function (paymentData) {
       // handle the response
       processPayment(paymentData);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       // show error in developer console for debugging
       console.error(err);
       // debugger;
