@@ -18,6 +18,7 @@ const style = css`
   }
   .noSticker {
     text-align: center;
+    margin: 10px 0;
   }
   .social {
     box-shadow: 0 2px 5px 1px rgb(0 0 0 / 20%);
@@ -94,8 +95,11 @@ const style = css`
         info.classList.add('noSticker');
         node.appendChild(info);
         const buyStickerButton = new AppButton({
-          text: 'Получить стикер!'
+          title: 'Получить стикер!'
         });
+        buyStickerButton.setAttribute('secondary', true);
+        buyStickerButton.setAttribute('wide', true);
+        buyStickerButton.classList.add('submitBtn');
         node.appendChild(buyStickerButton);
       }
 

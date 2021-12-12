@@ -294,13 +294,13 @@ export default class PageDonate extends Component {
         </div>
       </template>`;
 
-  // /** Создание компонента {Class} @constructor
-  //   * @param {type} store param-description
-  //   */
-  //   constructor(store) {
-  //     super();
-  //     this.store({ store });
-  //   }
+  /** Создание компонента {Class} @constructor
+    * @param {type} store param-description
+    */
+    constructor(sticker) {
+      super();
+      this.store({ sticker });
+    }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента

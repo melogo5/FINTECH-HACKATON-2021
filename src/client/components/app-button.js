@@ -1,5 +1,5 @@
 import Component, { html, css } from '../class/Component.js';
-import $, { updateChildrenText } from '../class/DOM.js';
+import $, { updateChildrenAttribute, updateChildrenText } from '../class/DOM.js';
 
 const attributes = {};
 const properties = {};
@@ -80,7 +80,6 @@ const style = css`
       }
       return this;
     }
-
   }
 
 Component.init(AppButton, 'app-button', { attributes, properties });
