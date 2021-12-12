@@ -57,6 +57,11 @@ const style = css`
     padding: 10px;
     margin-top: 10px;
   }
+  #price {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
   slot {
     display: block;
   }`;
@@ -132,6 +137,11 @@ const style = css`
         node.appendChild(social);
 
       } else {
+        const price = document.createElement("p");
+        price.id = "price";
+        price.innerText = "199 р.";
+        node.appendChild(price);
+
         const info = document.createElement("div");
         info.innerText = "У вас пока нет этого стикера!";
         info.classList.add('noSticker');

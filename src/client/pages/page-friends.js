@@ -13,7 +13,7 @@ export const friendList = [
     name: 'Камила',
     badge: 'Щедрый',
     donateAmount: 4312,
-    stickersCount: 23,
+    stickersCount: 6,
   },
   {
     avatar: '../images/2.jpg',
@@ -26,8 +26,8 @@ export const friendList = [
     avatar: '../images/3.jpg',
     name: '1000-7',
     badge: 'Наблюдатель',
-    donateAmount: 1,
-    stickersCount: 0,
+    donateAmount: 20,
+    stickersCount: 1,
   },
   {
     avatar: '../images/4.jpg',
@@ -41,42 +41,7 @@ export const friendList = [
     name: 'Dimk4',
     badge: 'Неравнодушный',
     donateAmount: 32,
-    stickersCount: 1,
-  },
-  {
-    avatar: '../images/1.jpg',
-    name: 'Камила',
-    badge: 'Щедрый',
-    donateAmount: 4312,
-    stickersCount: 23,
-  },
-  {
-    avatar: '../images/2.jpg',
-    name: 'Диана',
-    badge: 'Наблюдатель',
-    donateAmount: 0,
-    stickersCount: 0,
-  },
-  {
-    avatar: '../images/3.jpg',
-    name: '1000-7',
-    badge: 'Наблюдатель',
-    donateAmount: 1,
-    stickersCount: 0,
-  },
-  {
-    avatar: '../images/4.jpg',
-    name: 'Илья',
-    badge: 'Неравнодушный',
-    donateAmount: 100,
-    stickersCount: 2,
-  },
-  {
-    avatar: '../images/5.jpg',
-    name: 'Dimk4',
-    badge: 'Неравнодушный',
-    donateAmount: 32,
-    stickersCount: 1,
+    stickersCount: 3,
   }
 ];
 
