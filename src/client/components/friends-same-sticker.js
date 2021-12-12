@@ -33,7 +33,7 @@ const style = css`
     static template = html`
       <template>
         <style>${style}</style>
-        <div>У 3 ваших друзей есть такой же стикер:</div>
+        <div>У 3 ваших друзей уже есть этот стикер:</div>
         <div id="imgListFriends">
 
         </div>

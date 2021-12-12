@@ -23,8 +23,7 @@ const style = css`
   .getMoreStickers {
     color: gray;
     text-align: center;
-    position: absolute;
-    bottom: 15px;
+    margin-top: 20px;
   }
   slot {
     display: block;

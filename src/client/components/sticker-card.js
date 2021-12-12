@@ -29,12 +29,28 @@ const style = css`
     justify-items: center;
     width: 80%;
     margin: auto;
-    margin-top: 25px;
+    margin-top: 8px;
   }
   .counter {
     width: 80%;
     margin: auto;
+    margin-top: 10px;
+  }
+  .submitBtn {
+    text-align: center;
     margin-top: 15px;
+  }
+  .socialLabel {
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  .sameStickerBlock {
+    box-shadow: 0 2px 5px 1px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    margin-top: 10px;
   }
   slot {
     display: block;
@@ -76,27 +92,44 @@ const style = css`
         node.appendChild(info);
 
         const sameSticker = new SameSticker();
+        sameSticker.classList.add("sameStickerBlock");
         node.appendChild(sameSticker);
-
-        const social = new AppSocial();
-        social.classList.add("social");
-        node.appendChild(social);
 
         const progressIndicator = new Progress({
           amount: 1630,
           aim: 5000
         });
         progressIndicator.classList.add("counter");
-
         node.appendChild(progressIndicator);
+
+        const buyStickerButton = new AppButton({
+          title: 'Пожертвовать ещё'
+        });
+
+        buyStickerButton.setAttribute('secondary', true);
+        buyStickerButton.classList.add('submitBtn');
+        node.appendChild(buyStickerButton);
+
+        const socialLabel = document.createElement("p");
+        socialLabel.innerText = "Поделиться в соц. сетях"
+        socialLabel.classList.add("socialLabel");
+        node.appendChild(socialLabel);
+
+        const social = new AppSocial();
+        social.classList.add("social");
+        node.appendChild(social);
+
       } else {
         const info = document.createElement("div");
+
         info.innerText = "У вас пока нет этого стикера!";
         info.classList.add('noSticker');
         node.appendChild(info);
+
         const buyStickerButton = new AppButton({
           title: 'Получить стикер!'
         });
+
         buyStickerButton.setAttribute('secondary', true);
         buyStickerButton.setAttribute('wide', true);
         buyStickerButton.classList.add('submitBtn');
