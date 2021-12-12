@@ -14,10 +14,16 @@ const style = css`
   slot {
     display: block;
   }
+  #payments {
+    margin: 16px auto;
+    width: 90%;
+  }
   apple-pay-button {
-    --apple-pay-button-width: 150px;
-    --apple-pay-button-height: 30px;
-    --apple-pay-button-border-radius: 3px;
+    margin-bottom: 10px;
+    display: block;
+    --apple-pay-button-width: 100%;
+    --apple-pay-button-height: 40px;
+    --apple-pay-button-border-radius: 4px;
     --apple-pay-button-padding: 0px 0px;
     --apple-pay-button-box-sizing: border-box;
   }`;
@@ -261,8 +267,10 @@ export default class PageDonate extends Component {
         <slot></slot>
         <app-sticker paused>3-58164</app-sticker>
         Помогите собрать средства и получите в награду анимированную кошечку!
-        <apple-pay-button buttonstyle="black" type="plain" locale="en"></apple-pay-button>
-        <div id="google-pay"></div>
+        <div id="payments">
+          <apple-pay-button buttonstyle="black" type="plain" locale="en"></apple-pay-button>
+          <div id="google-pay"></div>
+        </div>
       </template>`;
 
   // /** Создание компонента {Class} @constructor
@@ -372,7 +380,7 @@ async function onApplePayButtonClicked() {
         setTimeout(() => {
           // throw new Error('test');
           reject('test');
-        }, 4000);
+        }, 10000);
       });
       event.complete(merchantSessionPromise);
     };
@@ -583,9 +591,12 @@ function onGooglePayLoaded(root, proceed) {
 function addGooglePayButton(root, proceed) {
   const paymentsClient = getGooglePaymentsClient();
   const button =
-    paymentsClient.createButton({onClick: () => {
-      onGooglePaymentButtonClicked(proceed)
-    }});
+    paymentsClient.createButton({
+        onClick: () => {
+          onGooglePaymentButtonClicked(proceed)
+        },
+        buttonSizeMode: 'fill'
+      });
     console.log(root, button);
   root.appendChild(button);
 }

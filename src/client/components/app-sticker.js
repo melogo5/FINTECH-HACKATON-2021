@@ -22,6 +22,22 @@ const style = css`
     "3-58164": {
       stickerPath: '/stickers/3-58164.json',
       name: "кошкодевочка"
+    },
+    "3-58150": {
+      stickerPath: '/stickers/3-58150.json',
+      name: "кошкодевочка 2"
+    },
+    "3-58145": {
+      stickerPath: '/stickers/3-58145.json',
+      name: "кошкодевочка 3"
+    },
+    "3-58138": {
+      stickerPath: '/stickers/3-58138.json',
+      name: "кошкодевочка 4"
+    },
+    "3-58139": {
+      stickerPath: '/stickers/3-58139.json',
+      name: "кошкодевочка 5"
     }
   };
 
