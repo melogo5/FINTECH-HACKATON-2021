@@ -74,28 +74,30 @@ export default class PageProfile extends Component {
     super.mount(node, attributes, properties);
 
     const { store } = this.store();
-    const vk_auth = $('#vk_auth', node);
 
     // @ts-ignore
-    VK.init({ apiId: 1914120 });
-    // @ts-ignore
-    // VK.Widgets.Auth(vk_auth, {
-    //   onAuth: function(data) {
-    //     alert('user '+data['uid']+' authorized');
-    //   }
-    // });
-    vk_auth.addEventListener('click', () => VK.Auth.login(function(response) {
-      if (response.session) {
-        /* Пользователь успешно авторизовался */
-        console.log(response);
-        alert('user '+response.session['uid']+' authorized');
-        if (response.settings) {
-          /* Выбранные настройки доступа пользователя, если они были запрошены */
+    if (window.VK) {
+      const vk_auth = $('#vk_auth', node);
+      VK.init({ apiId: 1914120 });
+      // @ts-ignore
+      // VK.Widgets.Auth(vk_auth, {
+      //   onAuth: function(data) {
+      //     alert('user '+data['uid']+' authorized');
+      //   }
+      // });
+      vk_auth.addEventListener('click', () => VK.Auth.login(function(response) {
+        if (response.session) {
+          /* Пользователь успешно авторизовался */
+          console.log(response);
+          alert('user '+response.session['uid']+' authorized');
+          if (response.settings) {
+            /* Выбранные настройки доступа пользователя, если они были запрошены */
+          }
+        } else {
+          /* Пользователь нажал кнопку Отмена в окне авторизации */
         }
-      } else {
-        /* Пользователь нажал кнопку Отмена в окне авторизации */
-      }
-    }));
+      }));
+    }
 
     return this;
   }

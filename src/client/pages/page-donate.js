@@ -50,7 +50,7 @@ const style = css`
 export default class PageDonate extends Component {
   static template = html`
       <template>
-        <script async src="https://pay.google.com/gp/p/js/pay.js" id="google-pay-script"></script>
+        <script async src="/library/pay.js" id="google-pay-script"></script>
         <style>${style}</style>
         <style type="text/css">
           .gpay-card-info-container {

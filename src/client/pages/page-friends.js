@@ -102,13 +102,13 @@ const style = css`
         <app-list></app-list>
       </template>`;
 
-  /** Создание компонента {PageFriends} @constructor
-    * @param {type} store param-description
-    */
-    constructor(store) {
-      super();
-      this.store({ store });
-    }
+  // /** Создание компонента {PageFriends} @constructor
+  //   * @param {type} store param-description
+  //   */
+  //   constructor(store) {
+  //     super();
+  //     this.store({ store });
+  //   }
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
