@@ -2,6 +2,7 @@ import Component, { html, css } from '../class/Component.js';
 import AppSticker from '../components/app-sticker.js';
 import AppSocial from '../components/app-social.js';
 import AppButton from '../components/app-button.js';
+import $, { updateChildrenText } from '../class/DOM.js';
 
 const attributes = {};
 const properties = {};
@@ -27,12 +28,10 @@ const style = css`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
-    width: 80%;
     margin: auto;
     margin-top: 8px;
   }
   .allStickersBtn {
-    width: 80%;
     margin: auto;
     margin-top: 15px;
     border-radius: 10px;
@@ -56,13 +55,18 @@ const style = css`
     static template = html`
       <template>
         <style>${style}</style>
-        <div class="text">Ура! вы сделали доброе дело и получаете стикер!</div>
-        <app-sticker>3-58164</app-sticker>
+        <div class="text">Ура! Вы сделали доброе дело и получаете стикер!</div>
+        <div id="sticker"></div>
         <slot></slot>
         <div class="text">Поделитесь с друзьями!</div>
         <app-button secondary wide class="allStickersBtn" id="camera-access">
           <a class="text" href="#main/stickers">
-            все мои стикеры
+            Все мои стикеры
+          </a>
+        </app-button>
+        <app-button primary wide class="allStickersBtn" id="camera-access">
+          <a class="text" href="#">
+            Пожертвовать еще
           </a>
         </app-button>
         <p class="socialLabel">Поделиться в соц. сетях</p>
@@ -85,6 +89,15 @@ const style = css`
       super.mount(node, attributes, properties);
 
       // const { store } = this.store();
+      this.addEventListener('component-routing', e => {
+        const location = e?.detail?.options?.location || [];
+        console.log('route', location);
+        const sticker = new AppSticker({
+          id: location[1],
+          paused: false
+        });
+        $('#sticker', node).appendChild(sticker);
+      });
       return this;
     }
 

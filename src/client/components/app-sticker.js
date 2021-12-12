@@ -76,7 +76,7 @@ export default class AppSticker extends Component {
       const stickerId = sticker?.id ?? slottedValue($('slot', node));
       const path = allStickers[stickerId]?.stickerPath;
       if (!path) return;
-      this.paused = sticker?.paused;
+      this.paused = sticker?.paused ?? false;
 
       // debugger;
       const element = $('div', node);

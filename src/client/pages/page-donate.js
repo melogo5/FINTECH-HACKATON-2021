@@ -3,7 +3,7 @@ import locator from "../script/locator.js";
 import Progress from '../components/progress-indicator.js';
 
 import AppSticker from '../components/app-sticker.js';
-import $ from '../class/DOM.js';
+import $, { updateChildrenText } from '../class/DOM.js';
 
 const attributes = {};
 const properties = {};
@@ -298,7 +298,7 @@ export default class PageDonate extends Component {
         <div id="infoWrapper">
           <div id="title">Фильтры для аппаратов ИВЛ</div>
           <slot></slot>
-          <app-sticker paused>3-58164</app-sticker>
+          <div id="sticker"></div>
           <div id="price">199 р.</div>
           <div id="description">Помогите собрать средства и получите в награду анимированную кошечку!</div>
         </div>
@@ -327,7 +327,7 @@ export default class PageDonate extends Component {
     // const { store } = this.store();
 
     const proceed = () => {
-      locator.go('main/success');
+      locator.go(`main/success/${this.stickerId}/${this.isStickerPaused}`);
     }
 
     const applePay = $('apple-pay-button', node);
@@ -346,6 +346,13 @@ export default class PageDonate extends Component {
     this.addEventListener('component-routing', e => {
       const location = e?.detail?.options?.location || [];
       console.log('route', location);
+      this.isStickerPaused = true;
+      this.stickerId = location[1];
+      const sticker = new AppSticker({
+        id: this.stickerId,
+        paused: this.isStickerPaused
+      });
+      $('#sticker', node).appendChild(sticker);
     });
 
     const progressIndicator = new Progress({

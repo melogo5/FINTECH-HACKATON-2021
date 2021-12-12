@@ -37,6 +37,10 @@ const style = css`
     margin: auto;
     margin-top: 10px;
   }
+  .donateInfo {
+    font-size: 24px;
+    text-align: center;
+  }
   .submitBtn {
     text-align: center;
     margin-top: 15px;
@@ -83,6 +87,13 @@ const style = css`
       super.mount(node, attributes, properties);
       const { sticker } = this.store();
 
+      if (sticker.paused) {
+        const donateInfo = document.createElement('div');
+        donateInfo.innerText = "Помощь детям-сиротам в отдаленных районах севера";
+        donateInfo.classList.add('donateInfo');
+        node.appendChild(donateInfo);
+      }
+
       const stickerElem = new AppSticker(sticker);
       node.appendChild(stickerElem);
 
@@ -122,7 +133,6 @@ const style = css`
 
       } else {
         const info = document.createElement("div");
-
         info.innerText = "У вас пока нет этого стикера!";
         info.classList.add('noSticker');
         node.appendChild(info);
@@ -136,7 +146,7 @@ const style = css`
         buyStickerButton.classList.add('submitBtn');
         node.appendChild(buyStickerButton);
         buyStickerButton.addEventListener('click', (event) => {
-          locator.go('main/donate');
+          locator.go(`main/donate/${sticker.id}/${sticker.paused}`);
         });
       }
 
