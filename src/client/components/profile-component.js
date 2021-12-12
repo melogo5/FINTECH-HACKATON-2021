@@ -4,39 +4,39 @@ const attributes = {};
 const properties = {};
 
 const style = css`
-  :host {
-    display: grid;
-    justify-content: center;
-    gap: 10px;
-  }
-  .myAvatar {
-    margin-top: 25px;
-    border-radius: 100%;
-  }
-  .nameProfile {
-    justify-self: center;
-    font-size: 28px;
-  }
-  .statusProfile {
-    color: #00E009;
-    justify-self: center;
-  }
-  .donationsProfile {
-    display: flex;
-    justify-content: space-between;
-  }
-  .stickersProfile {
-    display: flex;
-    justify-content: space-between;
-  }
+:host {
+  display: grid;
+  justify-content: center;
+  gap: 10px;
+}
+.myAvatar {
+  margin-top: 25px;
+  border-radius: 100%;
+}
+.nameProfile {
+  justify-self: center;
+  font-size: 28px;
+}
+.statusProfile {
+  color: #00E009;
+  justify-self: center;
+}
+.donationsProfile {
+  display: flex;
+  justify-content: space-between;
+}
+.stickersProfile {
+  display: flex;
+  justify-content: space-between;
+}
   slot {
     display: block;
   }`;
 
-/** Profile {PageProfile} @class @ui @component <page-profile />
+/** Profile {ProfileComponent} @class @ui @component <profile-component />
   * description
   */
-  export default class PageProfile extends Component {
+  export default class ProfileComponent extends Component {
     static template = html`
       <template>
         <style>${style}</style>
@@ -54,7 +54,7 @@ const style = css`
         </div>
       </template>`;
 
-  /** Создание компонента {PageProfile} @constructor
+  /** Создание компонента {ProfileComponent} @constructor
     * @param {type} store param-description
     */
     constructor(store) {
@@ -64,7 +64,7 @@ const style = css`
 
   /** Создание элемента в DOM (DOM доступен) / mount @lifecycle
     * @param {ShadowRoot} node корневой узел элемента
-    * @return {PageProfile} #this текущий компонент
+    * @return {ProfileComponent} #this текущий компонент
     */
     mount(node) {
       super.mount(node, attributes, properties);
@@ -76,4 +76,4 @@ const style = css`
 
   }
 
-Component.init(PageProfile, 'page-profile', { attributes, properties });
+Component.init(ProfileComponent, 'profile-component', { attributes, properties });
