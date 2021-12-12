@@ -1,4 +1,5 @@
 import Component, { html, css } from '../class/Component.js';
+import Progress from '../components/progress-indicator.js';
 
 const attributes = {};
 const properties = {};
@@ -80,6 +81,14 @@ export default class PageProfile extends Component {
     super.mount(node, attributes, properties);
 
     const { store } = this.store();
+
+    const progressIndicator = new Progress({
+      amount: 1630,
+      aim: 5000
+    });
+
+    node.appendChild(progressIndicator);
+
     return this;
   }
 
