@@ -94,7 +94,7 @@ const style = css`
 
       if (sticker.paused) {
         const donateInfo = document.createElement('div');
-        donateInfo.innerText = "Help reserve to maintain wild animals";
+        donateInfo.innerText = "Donate to Banff national park to maintain wild animals";
         donateInfo.classList.add('donateInfo');
         node.appendChild(donateInfo);
       }
