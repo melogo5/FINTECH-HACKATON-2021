@@ -9,11 +9,11 @@ const properties = {};
 const stickersArray = ["3-58164", "3-58150", "3-58145", "3-58138", "3-58139", "3-58140"];
 
 const badges = {
-  'Красавчик': '#E0CA00',
-  'Добросердечный': '#FF6767',
-  'Щедрый': '#FF0000',
-  'Неравнодушный': '#00E009',
-  'Наблюдатель': '#AEAEAE'
+  'Good guy': '#E0CA00',
+  'Sweetheart': '#FF6767',
+  'Generous': '#FF0000',
+  'Indifferent': '#00E009',
+  'Spectator': '#AEAEAE'
 }
 
 const style = css`
@@ -73,10 +73,10 @@ const style = css`
               <div id="badge"></div>
             </div>
             <div class="flexWrapper">
-              <div>Пожертвовано:</div><div id="donateAmount"></div>
+              <div>Donated:</div><div id="donateAmount"></div>
             </div>
             <div class="flexWrapper">
-            <div>Стикеров:</div><div id="stickersCount"></div>
+            <div>Stickers:</div><div id="stickersCount"></div>
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@ const style = css`
         locator.channel.send('drawer-open', {
           page: new PageStickers(this.getFriendStickers()),
           params: {
-            title: `Стикеры друга: ${data.name}`
+            title: `Friend's stickers: ${data.name}`
           }
         });
       });

@@ -42,14 +42,14 @@ const style = css`
         <style>${style}</style>
         <slot></slot>
         <img class="myAvatar" src="../images/Steve_Jobs.jpg">
-        <div class="nameProfile">Стив Джобс</div>
-        <div class="statusProfile">Неравнодушный</div>
+        <div class="nameProfile">Stieve Jobs</div>
+        <div class="statusProfile">Indifferent</div>
         <div class="donationsProfile">
-          <p>пожертвованно:</p>
+          <p>Donated:</p>
           <p>630</p>
         </div>
         <div class="stickersProfile">
-          <p>стикеров:</p>
+          <p>Stickers count:</p>
           <p>3</p>
         </div>
       </template>`;

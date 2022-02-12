@@ -62,10 +62,10 @@ const style = css`
       const { store } = this.store();
 
       const gotDonations = node.getElementById("gotDonations");
-      gotDonations.innerText = `Собрано: ${store.amount}`;
+      gotDonations.innerText = `Donated: ${store.amount}`;
 
       const aimDonations = node.getElementById("aimDonations");
-      aimDonations.innerText = `Цель: ${store.aim}`;
+      aimDonations.innerText = `Target: ${store.aim}`;
 
       const progress = node.getElementById("progress");
       const procient = Math.ceil(store.amount / store.aim * 100);

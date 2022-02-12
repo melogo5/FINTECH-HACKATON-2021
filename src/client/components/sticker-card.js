@@ -94,7 +94,7 @@ const style = css`
 
       if (sticker.paused) {
         const donateInfo = document.createElement('div');
-        donateInfo.innerText = "Помощь детям-сиротам в отдаленных районах севера";
+        donateInfo.innerText = "Help reserve to maintain wild animals";
         donateInfo.classList.add('donateInfo');
         node.appendChild(donateInfo);
       }
@@ -104,7 +104,7 @@ const style = css`
 
       if (!sticker.paused) {
         const info = document.createElement("div");
-        info.innerText = "Вы пожертвовали 200 рублей в фонд детей-сирот";
+        info.innerText = "You donated 20$!";
         info.classList.add("donationCount");
         node.appendChild(info);
 
@@ -120,7 +120,7 @@ const style = css`
         node.appendChild(progressIndicator);
 
         const buyStickerButton = new AppButton({
-          title: 'Пожертвовать ещё'
+          title: 'Donate more'
         });
 
         buyStickerButton.setAttribute('secondary', true);
@@ -128,7 +128,7 @@ const style = css`
         node.appendChild(buyStickerButton);
 
         const socialLabel = document.createElement("p");
-        socialLabel.innerText = "Поделиться в соц. сетях"
+        socialLabel.innerText = "Share in social media"
         socialLabel.classList.add("socialLabel");
         node.appendChild(socialLabel);
 
@@ -143,12 +143,12 @@ const style = css`
         node.appendChild(price);
 
         const info = document.createElement("div");
-        info.innerText = "У вас пока нет этого стикера!";
+        info.innerText = "You don't have this sticker yet";
         info.classList.add('noSticker');
         node.appendChild(info);
 
         const buyStickerButton = new AppButton({
-          title: 'Получить стикер!'
+          title: 'Get sticker!'
         });
 
         buyStickerButton.setAttribute('secondary', true);
