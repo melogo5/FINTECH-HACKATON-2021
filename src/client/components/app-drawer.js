@@ -70,7 +70,7 @@ const style = css`
         <style>${style}</style>
         <div id="root">
           <div id="header">
-            <div id="title">Заголовок</div>
+            <div id="title">Title</div>
             <app-close></app-close>
           </div>
           <slot></slot>

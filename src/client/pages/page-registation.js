@@ -56,13 +56,13 @@ export default class PageRegistration extends Component {
       <template>
         <style>${style}</style>
         <div class="registration_form">
-          <p>Уже зарегистрированы? <a id="gotoLogin">Войти</a></p>
-          <input class="inputPVP" type="text" name="lastName" placeholder="Фамилия">
-          <input class="inputPVP" type="text" name="firstName" placeholder="Имя">
-          <input class="inputPVP" type="text" name="middleName" placeholder="Отчество">
-          <input class="inputPVP" type="email" name="email" placeholder="Электронная почта (логин)">
-          <input class="inputPVP" type="password" name="password" placeholder="Пароль">
-          <app-button primary id="registerBtn">Зарегистрироваться</app-button>
+          <p>Have an account already? <a id="gotoLogin">Log in</a></p>
+          <input class="inputPVP" type="text" name="lastName" placeholder="Surname">
+          <input class="inputPVP" type="text" name="firstName" placeholder="Name">
+          <input class="inputPVP" type="text" name="middleName" placeholder="MiddleName">
+          <input class="inputPVP" type="email" name="email" placeholder="email (nickname)">
+          <input class="inputPVP" type="password" name="password" placeholder="Password">
+          <app-button primary id="registerBtn">Procede</app-button>
           <app-logo></app-logo>
         </div>
         <slot></slot>

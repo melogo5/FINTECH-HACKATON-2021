@@ -663,11 +663,11 @@ function addGooglePayButton(root, proceed) {
  */
 function getGoogleTransactionInfo() {
   return {
-    countryCode: 'RU',
-    currencyCode: 'RUB',
+    countryCode: 'CA',
+    currencyCode: 'USD',
     totalPriceStatus: 'FINAL',
     // set to cart total
-    totalPrice: '199'
+    totalPrice: '20'
   };
 }
 
@@ -681,7 +681,7 @@ function prefetchGooglePaymentData() {
   // transactionInfo must be set but does not affect cache
   paymentDataRequest.transactionInfo = {
     totalPriceStatus: 'NOT_CURRENTLY_KNOWN',
-    currencyCode: 'RUB'
+    currencyCode: 'USD'
   };
   const paymentsClient = getGooglePaymentsClient();
   paymentsClient.prefetchPaymentData(paymentDataRequest);

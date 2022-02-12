@@ -49,7 +49,7 @@ const style = css`
         <style>${style}</style>
         <video></video>
         <canvas></canvas>
-        <app-button secondary wide id="camera-access">Включить камеру</app-button>
+        <app-button secondary wide id="camera-access">Turn camera on</app-button>
         <div id="devices"></div>
       </template>`;
 

@@ -37,7 +37,7 @@ export default class PageStickers extends Component {
       <template>
         <style>${style}</style>
         <div id="stickerList"></div>
-        <div class="getMoreStickers">Получайте больше стикеров жертвуя на благотворительность</div>
+        <div class="getMoreStickers">Get more stickers for charity</div>
       </template>`;
 
   // /** Создание компонента {PageStickers} @constructor

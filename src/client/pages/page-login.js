@@ -53,11 +53,11 @@ export default class PageLogin extends Component {
       <template>
         <style>${style}</style>
         <div class="login_form">
-          <p>У вас еще нет аккаунта? <a id="gotoRegister">Зарегистрируйтесь</a></p>
+          <p>У вас еще нет аккаунта? <a id="gotoRegister">Sign up</a></p>
           <input class="inputPVP" name="login" value="potashin@ro.ru" placeholder="Введите Ваш email" />
           <input class="inputPVP" name="password" value="Qwerty12" placeholder="Введите Ваш пароль" />
 
-          <app-button primary id="button-login">Продолжить</app-button>
+          <app-button primary id="button-login">Procede</app-button>
           <app-logo></app-logo>
         </div>
       </template>`;

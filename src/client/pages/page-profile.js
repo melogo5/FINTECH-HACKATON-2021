@@ -46,14 +46,14 @@ export default class PageProfile extends Component {
         <slot></slot>
         <img class="myAvatar" src="../images/Steve_Jobs.jpg">
         <div class="nameProfile">Стив Джобс</div>
-        <app-button secondary wide id="vk_auth">Войти через VK</app-button>
-        <div class="statusProfile">Неравнодушный</div>
+        <app-button secondary wide id="vk_auth">Login via Facebook</app-button>
+        <div class="statusProfile">Good guy</div>
         <div class="donationsProfile">
-          <p>Пожертвованно:</p>
+          <p>Donated:</p>
           <p>1630</p>
         </div>
         <div class="stickersProfile">
-          <p>Стикеров:</p>
+          <p>Stickers count:</p>
           <p>5</p>
         </div>
       </template>`;
