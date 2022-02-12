@@ -55,21 +55,21 @@ const style = css`
     static template = html`
       <template>
         <style>${style}</style>
-        <div class="text">Ура! Вы сделали доброе дело и получаете стикер!</div>
+        <div class="text">Congratulations! You did a good deed and got a sticker !</div>
         <div id="sticker"></div>
         <slot></slot>
-        <div class="text">Поделитесь с друзьями!</div>
+        <div class="text">Share with your friends!</div>
         <app-button secondary wide class="allStickersBtn" id="camera-access">
           <a class="text" href="#main/stickers">
-            Все мои стикеры
+            My stickers collection
           </a>
         </app-button>
         <app-button primary wide class="allStickersBtn" id="camera-access">
           <a class="text" href="#">
-            Пожертвовать еще
+            Donate more
           </a>
         </app-button>
-        <p class="socialLabel">Поделиться в соц. сетях</p>
+        <p class="socialLabel">Share in social media</p>
         <app-social class="social"></app-social>
       </template>`;
 

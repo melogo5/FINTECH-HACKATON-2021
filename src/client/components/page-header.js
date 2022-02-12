@@ -6,10 +6,10 @@ const attributes = {};
 const properties = {};
 
 const texts = {
-  camera : "Камера",
-  stickers : "Стикеры",
-  friends : "Друзья",
-  profile : "Профиль"
+  camera : "Camera",
+  stickers : "Stickers",
+  friends : "Friends",
+  profile : "Profile"
 };
 
 const style = css`
